@@ -5,4 +5,4 @@
 - JS (JSX)
 - React
   - react-router-dom
-  - react-bootstrap
+  
