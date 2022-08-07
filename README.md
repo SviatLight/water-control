@@ -6,3 +6,4 @@
 - React
   - react-router-dom
   - react-bootstrap
+  - firebase
