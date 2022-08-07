@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext, useCallback} from 'react';
 import style from "./AuthForm.module.css"
 import {
   validateUserEmail,
@@ -6,8 +6,13 @@ import {
   validateUserPassword,
   validateUserPasswordRepeat
 } from "../../helpers/authUtils";
+import {backFirebase, Context} from "../../index";
+import {useNavigate} from "react-router-dom";
 
 const Registration = () => {
+  const navigate = useNavigate()
+  const {auth} = useContext(Context)
+
   const [nameError, setNameError] = useState("Name cannot be empty");
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState("Password cannot be empty");
@@ -20,14 +25,26 @@ const Registration = () => {
 
   const passwordRef = useRef(null)
 
-  const registrationHandler = () => {
-    console.log('registration')
-  }
+  const registrationHandler = useCallback(async event => {
+    event.preventDefault();
+    const {email, password} = event.target.elements;
+    try {
+      await backFirebase
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value).then(() => {
+          navigate('/')
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
   return (
-    <form className="d-grid gap-2 col-3 mx-auto" onSubmit={event => event.preventDefault()}>
+    <form className="d-grid gap-2 col-3 mx-auto" onSubmit={registrationHandler}>
       <div className="form-floating mb-3">
         <input
           type="text"
+          name="userName"
           className="form-control"
           id="floatingName"
           placeholder="User name"
@@ -37,6 +54,7 @@ const Registration = () => {
       </div>
       <div className="form-floating mb-3">
         <input
+          name="email"
           type="email"
           className="form-control"
           id="floatingInput"
@@ -48,6 +66,7 @@ const Registration = () => {
       <div className="form-floating mb-3">
         <input
           type="password"
+          name="password"
           className="form-control"
           id="makePassword"
           ref={passwordRef}
@@ -59,6 +78,7 @@ const Registration = () => {
       <div className="form-floating mb-4">
         <input
           type="password"
+          name="passwordRepeat"
           className="form-control"
           id="makePasswordRep"
           placeholder="Repeat your password"
@@ -69,8 +89,7 @@ const Registration = () => {
       <div className="d-grid gap-2 col-6 mx-auto">
         <button
           className="btn btn-primary btn-lg btn-block"
-          type="submit"
-          onClick={registrationHandler}>
+          type="submit">
           Registration
         </button>
       </div>

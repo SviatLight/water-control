@@ -7,7 +7,7 @@ export const validateEmail = (email) => {
 }
 
 export const validatePassword = (password) => {
-  return password.match(/.{4,}/gm)
+  return password.match(/.{6,}/gm)
 }
 
 export const validateUserName = (event, setErrorState, setErrorMessage) => {
@@ -40,7 +40,7 @@ export const validateUserPassword = (event, setErrorState, setErrorMessage) => {
     setErrorMessage("Password cannot be empty")
   } else if (!validatePassword(event.target.value)) {
     setErrorState(false)
-    setErrorMessage("Password has to be more than 3")
+    setErrorMessage("Password should be at least 6 characters")
   } else {
     setErrorState(true)
   }
@@ -52,7 +52,7 @@ export const validateUserPasswordRepeat = (event, setErrorState, setErrorMessage
     setErrorMessage("Password cannot be empty")
   } else if (!validatePassword(event.target.value)) {
     setErrorState(false)
-    setErrorMessage("Password has to be more than 3")
+    setErrorMessage("Password should be at least 6 characters")
   } else if (password !== event.target.value) {
     setErrorState(false)
     setErrorMessage("Passwords are not same")

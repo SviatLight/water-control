@@ -8,7 +8,7 @@ const LoginLayout = ({children}) => {
       <FormHeader>
         {children}
       </FormHeader>
-      <Outlet />
+      <Outlet/>
     </>
   );
 };

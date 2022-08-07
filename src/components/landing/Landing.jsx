@@ -1,11 +1,29 @@
 import style from './Landing.module.css'
+import React, {useContext} from "react";
+import {useNavigate} from "react-router-dom";
+import {Context} from "../../index";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 const Landing = () => {
-  return (
-    <div className={style.wrapper}>
+  const navigate = useNavigate()
 
-    </div>
-  );
+  const {auth} = useContext(Context)
+  const [user] = useAuthState(auth)
+
+  return user ?
+    (
+      <div>
+        <h1>Welcome to water control app</h1>
+        <button className="btn btn-danger" onClick={() => auth.signOut()}>Sign out</button>
+      </div>
+    )
+    :
+    (
+      <div>
+        <h1>You are not authorize</h1>
+        <button className="btn btn-success" onClick={() => navigate('/login')}>Sign in</button>
+      </div>
+    );
 }
 
 export default Landing;

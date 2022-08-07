@@ -16,21 +16,17 @@
   text-decoration: none;
 }
 
-.links:hover{
+.links:hover {
   color: blue;
 }
 
-.activeLink{
+.activeLink {
   text-decoration: none;
   color: blue;
 }
 
 .title {
   color: blue;
-}
-
-.forgot_pswd {
-  text-align: center;
 }
 
 .error {
