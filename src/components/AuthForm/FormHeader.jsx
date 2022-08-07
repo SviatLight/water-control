@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Link, useLocation} from "react-router-dom";
 import style from "./AuthForm.module.css"
 
-
 const FormHeader = () => {
   const location = useLocation();
   const [log, setLog] = useState(location.pathname === '/login')

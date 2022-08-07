@@ -2,13 +2,12 @@ import React, {useState, useContext, useCallback} from 'react';
 import {useNavigate} from "react-router-dom";
 import style from "./AuthForm.module.css"
 import {validateUserEmail, validateUserPassword} from "../../helpers/authUtils"
-import {backFirebase, Context} from "../../index";
-import firebase from "firebase";
+import {FirebaseContext} from "../../index";
+import {signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword} from "firebase/auth"
 
 const Login = () => {
   const navigate = useNavigate()
-  const {auth} = useContext(Context)
-
+  const {auth} = useContext(FirebaseContext)
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState("Password cannot be empty");
 
@@ -16,8 +15,8 @@ const Login = () => {
   const [passwordValid, setPasswordValid] = useState(true);
 
   const loginGoogleHandler = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider()
-    await auth.signInWithPopup(provider).then(() => {
+    const provider = new GoogleAuthProvider()
+    await signInWithPopup(auth, provider).then(() => {
       navigate('/')
     })
   }
@@ -27,11 +26,9 @@ const Login = () => {
       event.preventDefault();
       const {email, password} = event.target.elements;
       try {
-        await backFirebase
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value).then(() => {
-            navigate('/')
-          });
+        await signInWithEmailAndPassword(auth, email.value, password.value).then(() => {
+          navigate('/')
+        });
       } catch (error) {
         console.log(error);
       }

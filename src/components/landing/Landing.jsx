@@ -1,13 +1,13 @@
 import style from './Landing.module.css'
 import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
-import {Context} from "../../index";
+import {FirebaseContext} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 
 const Landing = () => {
   const navigate = useNavigate()
 
-  const {auth} = useContext(Context)
+  const {auth} = useContext(FirebaseContext)
   const [user] = useAuthState(auth)
 
   return user ?
