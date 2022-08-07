@@ -6,12 +6,13 @@ import {
   validateUserPassword,
   validateUserPasswordRepeat
 } from "../../helpers/authUtils";
-import {backFirebase, Context} from "../../index";
+import {FirebaseContext} from "../../index";
+import {createUserWithEmailAndPassword} from "firebase/auth"
 import {useNavigate} from "react-router-dom";
 
 const Registration = () => {
   const navigate = useNavigate()
-  const {auth} = useContext(Context)
+  const {auth} = useContext(FirebaseContext)
 
   const [nameError, setNameError] = useState("Name cannot be empty");
   const [emailError, setEmailError] = useState("Email cannot be empty");
@@ -29,11 +30,9 @@ const Registration = () => {
     event.preventDefault();
     const {email, password} = event.target.elements;
     try {
-      await backFirebase
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value).then(() => {
-          navigate('/')
-        });
+      await createUserWithEmailAndPassword(auth, email.value, password.value).then(() => {
+        navigate('/')
+      });
     } catch (error) {
       console.log(error);
     }
