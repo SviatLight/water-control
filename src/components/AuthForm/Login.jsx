@@ -18,15 +18,10 @@ const Login = () => {
 
   const loginGoogleHandler = async () => {
     const provider = new GoogleAuthProvider()
-    try {
-      await signInWithPopup(auth, provider).then(() => {
-        toast.success('You are successfully logged in')
-        navigate('/')
-      })
-    } catch (error) {
-      const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
-      toast.error(errorText)
-    }
+    await signInWithPopup(auth, provider).then(() => {
+      toast.success('You are successfully logged in')
+      navigate('/')
+    })
   };
 
   const loginHandler = useCallback(
@@ -39,8 +34,10 @@ const Login = () => {
           navigate('/')
         });
       } catch (error) {
-        const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
-        toast.error(errorText)
+        if (error.code !== 'auth/invalid-email') {
+          const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
+          toast.error(errorText)
+        }
       }
     });
 
