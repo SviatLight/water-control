@@ -9,6 +9,8 @@ import {
 import {FirebaseContext} from "../../index";
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import {useNavigate} from "react-router-dom";
+import {capitalizeFirstLetter} from "../../helpers/utils";
+import {toast} from "react-toastify";
 
 const Registration = () => {
   const navigate = useNavigate()
@@ -31,10 +33,12 @@ const Registration = () => {
     const {email, password} = event.target.elements;
     try {
       await createUserWithEmailAndPassword(auth, email.value, password.value).then(() => {
+        toast.success('You have successfully registered')
         navigate('/')
       });
     } catch (error) {
-      console.log(error);
+      const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
+      toast.error(errorText)
     }
   });
 
