@@ -4,6 +4,8 @@ import style from "./AuthForm.module.css"
 import {validateUserEmail, validateUserPassword} from "../../helpers/authUtils"
 import {FirebaseContext} from "../../index";
 import {signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword} from "firebase/auth"
+import {toast} from "react-toastify";
+import {capitalizeFirstLetter} from "../../helpers/utils";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -17,9 +19,10 @@ const Login = () => {
   const loginGoogleHandler = async () => {
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider).then(() => {
+      toast.success('You are successfully logged in')
       navigate('/')
     })
-  }
+  };
 
   const loginHandler = useCallback(
     async event => {
@@ -27,10 +30,14 @@ const Login = () => {
       const {email, password} = event.target.elements;
       try {
         await signInWithEmailAndPassword(auth, email.value, password.value).then(() => {
+          toast.success('You are successfully logged in')
           navigate('/')
         });
       } catch (error) {
-        console.log(error);
+        if (error.code !== 'auth/invalid-email') {
+          const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
+          toast.error(errorText)
+        }
       }
     });
 

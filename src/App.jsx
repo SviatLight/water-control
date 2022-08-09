@@ -5,20 +5,25 @@ import UserInfo from './components/measurements/UserInfo';
 import LoginLayout from './components/AuthForm/LoginLayout'
 import Login from "./components/AuthForm/Login";
 import Registration from "./components/AuthForm/Registration";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
   return (
-    <div className={style.wrapper}>
-      <Routes>
-        <Route path="/" element={<Landing/>}/>
-        <Route path="/registration/weight" element={<UserInfo/>}/>
-        <Route element={<LoginLayout/>}>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/registration" element={<Registration/>}/>
-        </Route>
-      </Routes>
-    </div>
+    <>
+      <div className={style.wrapper}>
+        <Routes>
+          <Route path="/" element={<Landing/>}/>
+          <Route path="/registration/weight" element={<UserInfo/>}/>
+          <Route element={<LoginLayout/>}>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/registration" element={<Registration/>}/>
+          </Route>
+        </Routes>
+      </div>
+      <ToastContainer theme={"colored"}/>
+    </>
   );
 }
 
