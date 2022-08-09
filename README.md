@@ -8,3 +8,4 @@
   - react-bootstrap
   - firebase
   - react-firebase-hooks
+  - react-toastify
