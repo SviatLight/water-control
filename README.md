@@ -7,3 +7,4 @@
   - react-router-dom
   - react-bootstrap
   - firebase
+  - react-firebase-hooks
