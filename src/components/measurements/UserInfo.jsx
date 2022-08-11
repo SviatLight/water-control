@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './UserInfo.module.css'
 
+
 const UserInfo = () => {
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState(0);
@@ -14,6 +15,7 @@ const UserInfo = () => {
     setErrorAge(!age);
     console.log(`your weight is ${weight}`);
     console.log(`your age is ${age}`);
+    localStorage.setItem("weight", weight);
   }
 
   return (

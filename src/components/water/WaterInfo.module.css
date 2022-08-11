@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  margin: 100px;
+  cursor: pointer;
+}
+
+.block:hover {
+  border: 1px solid red;
+}
+
+.waterCounter {
+  width: 100px;
+  margin-left: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  justify-content: center;
+  margin: 100px;
+  cursor: pointer;
+
+}
+
+.buttonOk {
+
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+
+}
