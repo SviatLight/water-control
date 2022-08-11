@@ -6,3 +6,6 @@
 - React
   - react-router-dom
   - react-bootstrap
+  - firebase
+  - react-firebase-hooks
+  - react-toastify
