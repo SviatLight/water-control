@@ -1,3 +1,11 @@
+.container {
+  position: relative;
+  width: 50%;
+  margin: 10px auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -8,19 +16,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   justify-content: center;
   margin: 100px;
   cursor: pointer;
+  padding: 1.5em;
+  margin: 2em 2em;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s;
 }
 
 .block:hover {
-  border: 1px solid red;
+  border: 50px solid red;
+  background-color: #a5d3edd1;
+  padding: 1.5em;
 }
 
 .waterCounter {
-  width: 100px;
+  width: 80px;
   margin-left: 10px;
 }
 
@@ -28,22 +47,31 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 200px;
-  height: 100px;
   justify-content: center;
-  margin: 100px;
   cursor: pointer;
 
 }
 
-.buttonOk {
-
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-}
-
 label {
   display: flex;
+  align-items: flex-start;
 
+}
+
+h1,
+h5 {
+  text-align: center;
+  color: #0d6efd;
+}
+
+h4 {
+  text-align: center;
+  color: #10418a;
+}
+
+.title {
+  font-size: 16px;
+  color: #0d6efd;
+  font-weight: bold;
+  margin-top: 10px;
 }
