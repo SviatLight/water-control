@@ -7,7 +7,7 @@ import bottle4 from '../../images/bottle175.png'
 import bottle5 from '../../images/bottle200.png'
 import bottle6 from '../../images/bottle300.png'
 import bottle7 from '../../images/bottle400.png'
-
+import moment from 'moment';
 
 const WaterInfo = () => {
   const [water, setWater] = useState("");
@@ -25,6 +25,8 @@ const WaterInfo = () => {
   ];
 
   const handleSubmit = () => {
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     console.log('result', choise)
   }
 
