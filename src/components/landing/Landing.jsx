@@ -2,8 +2,8 @@ import style from './Landing.module.css'
 import background from '../../images/landingBackground.jpg';
 import React, {useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {FirebaseContext} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
+import {FirebaseContext} from "../../config";
 
 const Landing = () => {
   const navigate = useNavigate()
@@ -12,7 +12,7 @@ const Landing = () => {
   const [user] = useAuthState(auth)
 
   return (
-    <header className={style.header} >
+    <header className={style.header}>
       <nav className={style.headerMenu}>
         <h2>Water Control</h2>
         <ul className={style.menu}>
@@ -30,29 +30,26 @@ const Landing = () => {
               <div>
                 <button className="btn btn-success" onClick={() => navigate('/login')}>Sign in</button>
               </div>
-          )}
+            )}
         </ul>
       </nav>
       <div className={style.headerContent}>
         <section className={style.headerContainer}>
           <h2>Water</h2>
-          <p>“Drinking water is like washing out your insides. The water will cleanse the system, fill you up, decrease your caloric load and improve the function of all your tissues.”</p>
+          <p>“Drinking water is like washing out your insides. The water will cleanse the system, fill you up, decrease
+            your caloric load and improve the function of all your tissues.”</p>
 
           {user ?
-              (
-                <div>
-                  <Link to='/app'>Open app</Link>
-                </div>
-              )
-              :
-              (
-                <button className="btn btn-success" onClick={() => navigate('/login')}>Start</button>
+            (
+              <button className='btn btn-primary' onClick={() => navigate('/setup/gender')}>Start settings</button>
+            )
+            :
+            (
+              <button className="btn btn-success" onClick={() => navigate('/login')}>Start</button>
             )}
-
-
         </section>
         <div className={style.headerImg}>
-          <img src={background} className={style.backgroundImgLanding} alt="background" />
+          <img src={background} className={style.backgroundImgLanding} alt="background"/>
         </div>
       </div>
     </header>
