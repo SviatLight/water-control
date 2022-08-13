@@ -8,6 +8,7 @@ import Login from "./components/AuthForm/Login";
 import Registration from "./components/AuthForm/Registration";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import WaterControl from "./components/app/WaterControl";
 
 
 const App = () => {
@@ -16,8 +17,11 @@ const App = () => {
       <div className={style.wrapper}>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/registration/weight" element={<UserInfo />} />
-          <Route path="/registration/water" element={<WaterInfo />} />
+          {/* <Route path="/registration/sex" element={<UserSex />} /> */}
+          <Route path="/registration/sex/weight" element={<UserInfo />} />
+          {/* <Route path="/registration/sex/weight/sleep" element={<WaterInfo />} /> */}
+          <Route path="/registration/sex/weight/sleep/water" element={<WaterInfo />} />
+          <Route path="/app" element={<WaterControl />} />
           <Route element={<LoginLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />

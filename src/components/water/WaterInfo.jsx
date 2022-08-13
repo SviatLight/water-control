@@ -1,5 +1,6 @@
 import style from './WaterInfo.module.css'
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import bottle1 from '../../images/bottle100.png'
 import bottle2 from '../../images/bottle125.png'
 import bottle3 from '../../images/bottle150.png'
@@ -7,7 +8,7 @@ import bottle4 from '../../images/bottle175.png'
 import bottle5 from '../../images/bottle200.png'
 import bottle6 from '../../images/bottle300.png'
 import bottle7 from '../../images/bottle400.png'
-import bottle8 from '../../images/bottle.png'
+// import bottle8 from '../../images/bottle.png'
 
 const WaterInfo = () => {
   const [water, setWater] = useState("");
@@ -42,9 +43,9 @@ const WaterInfo = () => {
       <h1>Об'єм посудини</h1>
       <div>You need to drink {localStorage.getItem("weight") * 30} ml</div>
       <div className={style.wrapper}>
-        {data.map(item => (
-          <div className={style.block} style={{ color: item.title === choise ? 'red' : 'black', border: item.title === choise ? '1px solid red' : 'none' }} onClick={() => handleSelect(item.title)}>
-            <img src={item.image} />
+        {data.map((item, index) => (
+          <div className={style.block} key={index} style={{ color: item.title === choise ? 'red' : 'black', border: item.title === choise ? '1px solid red' : 'none' }} onClick={() => handleSelect(item.title)}>
+            <img src={item.image} alt={item.title} />
             <div>{item.title}</div>
           </div>
         ))}
@@ -60,8 +61,7 @@ const WaterInfo = () => {
         </div>
       </div>
       <div className={style.buttonOk}>
-        <button onClick={handleSubmit}>OK</button>
-
+        <Link to='/app' onClick={handleSubmit}>Open app</Link>
       </div>
 
     </div>
