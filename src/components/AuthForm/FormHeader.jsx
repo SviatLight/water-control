@@ -20,9 +20,10 @@ const FormHeader = () => {
   return (
     <div className={style.login_container}>
       <div className={style.header}>
-        <h3><Link className={!log ? style.links : style.activeLink} onClick={logActive} to="/login">Login</Link></h3>
+        <h3><Link className={!log ? style.links : `${style.links} ${style.active}`} onClick={logActive}
+                  to="/login">Login</Link></h3>
         <h3>|</h3>
-        <h3><Link className={!reg ? style.links : style.activeLink} onClick={regActive}
+        <h3><Link className={!reg ? style.links : `${style.links} ${style.active}`} onClick={regActive}
                   to="/registration">Registration</Link></h3>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, {useState, useContext, useCallback} from 'react';
 import {useNavigate} from "react-router-dom";
 import style from "./AuthForm.module.css"
 import {validateUserEmail, validateUserPassword} from "../../helpers/authUtils"
-import {FirebaseContext} from "../../index";
+import {FirebaseContext} from "../../config";
 import {signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword} from "firebase/auth"
 import {toast} from "react-toastify";
 import {capitalizeFirstLetter} from "../../helpers/utils";
@@ -10,6 +10,7 @@ import {capitalizeFirstLetter} from "../../helpers/utils";
 const Login = () => {
   const navigate = useNavigate()
   const {auth} = useContext(FirebaseContext)
+
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState("Password cannot be empty");
 
