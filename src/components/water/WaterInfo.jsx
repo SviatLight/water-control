@@ -1,6 +1,5 @@
 import style from './WaterInfo.module.css'
 import { useState } from 'react';
-import { Link } from "react-router-dom";
 import bottle1 from '../../images/bottle100.png'
 import bottle2 from '../../images/bottle125.png'
 import bottle3 from '../../images/bottle150.png'
@@ -8,6 +7,7 @@ import bottle4 from '../../images/bottle175.png'
 import bottle5 from '../../images/bottle200.png'
 import bottle6 from '../../images/bottle300.png'
 import bottle7 from '../../images/bottle400.png'
+import moment from 'moment';
 
 const WaterInfo = () => {
   const [water, setWater] = useState("");
@@ -25,6 +25,8 @@ const WaterInfo = () => {
   ];
 
   const handleSubmit = () => {
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     console.log('result', choise)
   }
 
@@ -43,9 +45,9 @@ const WaterInfo = () => {
         <h1>Об'єм посудини</h1>
         <div><h4>You need to drink  {localStorage.getItem("weight") * 30}  ml </h4></div>
         <div className={style.wrapper}>
-          {data.map((item, index) => (
-            <div className={style.block} key={index} style={{ color: item.id === choise ? 'blue' : 'black', border: item.id === choise ? '3px solid blue' : 'none', backgroundColor: item.id === choise ? '#a5d3edd1' : 'white' }} onClick={() => handleSelect(item.id)}>
-              <img src={item.image} alt={item.title} />
+          {data.map(item => (
+            <div className={style.block} style={{ color: item.id === choise ? 'blue' : 'black', border: item.id === choise ? '3px solid blue' : 'none', backgroundColor: item.id === choise ? '#a5d3edd1' : 'white' }} onClick={() => handleSelect(item.id)}>
+              <img src={item.image} />
               <div className={style.title}>{item.title}</div>
             </div>
           ))}
@@ -63,11 +65,11 @@ const WaterInfo = () => {
         </div>
 
         <div className="d-grid gap-2 col-6 mx-auto">
-          <Link to='/app'
+          <button
             className="btn btn-primary btn-lg btn-block"
             onClick={handleSubmit}>
             OK
-          </Link>
+          </button>
         </div>
       </div>
     </div>
