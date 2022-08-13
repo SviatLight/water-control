@@ -7,6 +7,12 @@ import Login from "./components/AuthForm/Login";
 import Registration from "./components/AuthForm/Registration";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import UserWakeUp from "./components/UserInfo/UserWakeUp";
+import UserGoSleep from "./components/UserInfo/UserGoSleep";
+import UserGender from "./components/UserInfo/UserGender";
+import UserCreateContext from "./components/UserInfo/UserCreateContext";
+import React from "react";
+import UserName from "./components/UserInfo/UserName";
 
 
 const App = () => {
@@ -16,6 +22,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/registration/weight" element={<UserInfo/>}/>
+          <Route path="/setup/" element={<UserCreateContext/>}>
+            <Route path="gender" element={<UserGender/>}/>
+            <Route path="user_name" element={<UserName/>}/>
+            <Route path="wake_up" element={<UserWakeUp/>}/>
+            <Route path="sleep_time" element={<UserGoSleep/>}/>
+          </Route>
           <Route element={<LoginLayout/>}>
             <Route path="/login" element={<Login/>}/>
             <Route path="/registration" element={<Registration/>}/>

@@ -1,7 +1,7 @@
 import style from './Landing.module.css'
 import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
-import {FirebaseContext} from "../../index";
+import {db, FirebaseContext} from "../../config";
 import {useAuthState} from "react-firebase-hooks/auth";
 
 const Landing = () => {
@@ -14,6 +14,8 @@ const Landing = () => {
     (
       <div>
         <h1>Welcome to water control app</h1>
+        <button className='btn btn-primary' onClick={() => navigate('/setup/gender')}>Start settings</button>
+        <br/>
         <button className="btn btn-danger" onClick={() => auth.signOut()}>Sign out</button>
       </div>
     )

@@ -2,26 +2,24 @@ import React, {useState, useRef, useContext, useCallback} from 'react';
 import style from "./AuthForm.module.css"
 import {
   validateUserEmail,
-  validateUserName,
   validateUserPassword,
   validateUserPasswordRepeat
 } from "../../helpers/authUtils";
-import {FirebaseContext} from "../../index";
+import {FirebaseContext} from "../../config";
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import {useNavigate} from "react-router-dom";
 import {capitalizeFirstLetter} from "../../helpers/utils";
 import {toast} from "react-toastify";
 
+
 const Registration = () => {
   const navigate = useNavigate()
   const {auth} = useContext(FirebaseContext)
 
-  const [nameError, setNameError] = useState("Name cannot be empty");
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState("Password cannot be empty");
   const [passwordRepeatError, setPasswordRepeatError] = useState("Password cannot be empty");
 
-  const [nameValid, setNameValid] = useState(true);
   const [emailValid, setEmailValid] = useState(true);
   const [passwordValid, setPasswordValid] = useState(true);
   const [passwordRepeatValid, setPasswordRepeatValid] = useState(true);
@@ -44,17 +42,6 @@ const Registration = () => {
 
   return (
     <form className="d-grid gap-2 col-3 mx-auto" onSubmit={registrationHandler}>
-      <div className="form-floating mb-3">
-        <input
-          type="text"
-          name="userName"
-          className="form-control"
-          id="floatingName"
-          placeholder="User name"
-          onChange={event => validateUserName(event, setNameValid, setNameError)}/>
-        <label htmlFor="floatingName">User name</label>
-        {!nameValid ? <div className={style.error}>{nameError}</div> : <></>}
-      </div>
       <div className="form-floating mb-3">
         <input
           name="email"
@@ -97,7 +84,7 @@ const Registration = () => {
         </button>
       </div>
     </form>
-  );
+  )
 };
 
 export default Registration;
