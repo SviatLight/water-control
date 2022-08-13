@@ -18,7 +18,7 @@ const UserInfo = () => {
     console.log(`your weight is ${weight}`);
     console.log(`your age is ${age}`);
     localStorage.setItem("weight", weight);
-    navigate('/registration/water')
+    navigate('/registration/sex/weight/sleep/water')
   }
 
   return (
