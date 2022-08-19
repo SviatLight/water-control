@@ -12,9 +12,13 @@ import WaterControl from "./components/app/WaterControl";
 import UserWakeUp from "./components/UserInfo/UserWakeUp";
 import UserGoSleep from "./components/UserInfo/UserGoSleep";
 import UserGender from "./components/UserInfo/UserGender";
-import UserCreateContext from "./components/UserInfo/UserCreateContext";
+import UserCreateContext from "./components/context/UserCreateContext";
 import React from "react";
 import UserName from "./components/UserInfo/UserName";
+import UserAge from "./components/UserInfo/UserAge";
+import UserWeight from "./components/UserInfo/UserWeight";
+import LoginContext from "./components/context/LoginContext";
+import LoginRequired from "./components/context/LoginRequired";
 
 
 const App = () => {
@@ -22,10 +26,13 @@ const App = () => {
     <>
       <div className={style.wrapper}>
         <Routes>
-          <Route path="/" element={<Landing/>}/>
-          <Route path="/registration/sex/weight" element={<UserInfo/>}/>
-          <Route path="/registration/sex/weight/sleep/water" element={<WaterInfo/>}/>
-          <Route path="/registration/weight" element={<UserInfo/>}/>
+          <Route path="/" element={<LoginContext/>}>
+            <Route path="/" element={<Landing/>}/>
+            <Route element={<LoginRequired/>}>
+              <Route path="/water_info" element={<WaterInfo/>}/>
+            </Route>
+          </Route>
+          {/*<Route path="/registration/weight" element={<UserInfo/>}/>*/}
           <Route element={<LoginLayout/>}>
             <Route path="/login" element={<Login/>}/>
             <Route path="/registration" element={<Registration/>}/>
@@ -34,6 +41,8 @@ const App = () => {
           <Route path="/setup/" element={<UserCreateContext/>}>
             <Route path="gender" element={<UserGender/>}/>
             <Route path="user_name" element={<UserName/>}/>
+            <Route path="user_age" element={<UserAge/>}/>
+            <Route path="user_weight" element={<UserWeight/>}/>
             <Route path="wake_up" element={<UserWakeUp/>}/>
             <Route path="sleep_time" element={<UserGoSleep/>}/>
           </Route>
