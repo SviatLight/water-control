@@ -1,15 +1,12 @@
 import style from './Landing.module.css'
 import background from '../../images/landingBackground.jpg';
-import React, {useContext} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {useAuthState} from "react-firebase-hooks/auth";
-import {FirebaseContext} from "../../config";
+import React from "react";
+import {useNavigate, useOutletContext} from "react-router-dom";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Landing = () => {
   const navigate = useNavigate()
-
-  const {auth} = useContext(FirebaseContext)
-  const [user] = useAuthState(auth)
+  const {user} = useOutletContext()
 
   return (
     <header className={style.header}>
@@ -22,7 +19,7 @@ const Landing = () => {
           {user ?
             (
               <div>
-                <button className="btn btn-danger" onClick={() => auth.signOut()}>Sign out</button>
+                <BurgerMenu/>
               </div>
             )
             :
@@ -41,7 +38,7 @@ const Landing = () => {
 
           {user ?
             (
-              <button className='btn btn-primary' onClick={() => navigate('/setup/gender')}>Start settings</button>
+              <button className='btn btn-primary' onClick={() => navigate('/')}>Start</button>
             )
             :
             (

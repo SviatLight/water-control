@@ -1,22 +1,34 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Outlet, useLocation, useNavigate} from "react-router-dom";
-import style from "./UserInfo.module.css"
+import style from "../UserInfo/UserInfo.module.css"
 import {db, FirebaseContext} from "../../config";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {Alarm, GenderFemale, GenderMale, Info, MoonStars, Person, Sun} from "react-bootstrap-icons";
+import {
+  Alarm,
+  GenderFemale,
+  GenderMale,
+  Info,
+  MoonStars,
+  Person,
+  PersonHearts,
+  PersonLinesFill,
+  Sun
+} from "react-bootstrap-icons";
 import {ref, set} from "firebase/database";
 import {toast} from "react-toastify";
-import UserInfoHeaderButton from "./UserInfoHeaderButton";
+import UserInfoHeaderButton from "../UserInfo/UserInfoHeaderButton";
 import {capitalizeAll} from "../../helpers/utils";
 
 const UserCreateContext = ({children}) => {
   const [currentUser, setCurrentUser] = useState({
     gender: null,
     userName: null,
+    userAge: null,
+    userWeight: null,
     wakeUp: null,
     sleepTime: null
   });
-  const setupPages = ['gender', 'user_name', 'wake_up', 'sleep_time']
+  const setupPages = ['gender', 'user_name', 'user_age', 'user_weight', 'wake_up', 'sleep_time']
   const location = useLocation();
   const pageIndex = setupPages.indexOf(location.pathname.split('/').at(-1))
   const nextPageName = setupPages[pageIndex + 1]
@@ -39,14 +51,13 @@ const UserCreateContext = ({children}) => {
 
   const finishUserSettings = () => {
     writeToDatabase()
-    navigate('/')
+    navigate('/water_info')
     toast.success('You finished your settings!')
     console.log(currentUser)
   }
 
   const clickHandler = (e) => {
     navigate(`/setup/${setupPages[e.currentTarget.tabIndex]}`)
-    console.log(e.currentTarget.tabIndex)
   }
 
   return (
@@ -58,18 +69,33 @@ const UserCreateContext = ({children}) => {
           <GenderMale className={`${style.gender_icon} ${style.gender_male}`}/>
           <GenderFemale className={`${style.gender_icon} ${style.gender_female}`}/>
         </UserInfoHeaderButton>
+
         <UserInfoHeaderButton thisPageIndex={1}
                               currentPageIndex={pageIndex} clickHandler={clickHandler} currentUser={currentUser}
                               userKey='userName'>
           <Person className={style.gender_icon}/>
           <Info className={style.gender_icon}/>
         </UserInfoHeaderButton>
-        <UserInfoHeaderButton thisPageIndex={2} currentPageIndex={pageIndex} clickHandler={clickHandler}
+
+        <UserInfoHeaderButton thisPageIndex={2}
+                              currentPageIndex={pageIndex} clickHandler={clickHandler} currentUser={currentUser}
+                              userKey='userAge'>
+          <PersonHearts className={style.gender_icon}/>
+        </UserInfoHeaderButton>
+
+        <UserInfoHeaderButton thisPageIndex={3}
+                              currentPageIndex={pageIndex} clickHandler={clickHandler} currentUser={currentUser}
+                              userKey='userWeight'>
+          <PersonLinesFill className={style.gender_icon}/>
+        </UserInfoHeaderButton>
+
+        <UserInfoHeaderButton thisPageIndex={4} currentPageIndex={pageIndex} clickHandler={clickHandler}
                               currentUser={currentUser} userKey='wakeUp'>
           <Alarm className={style.gender_icon}/>
           <Sun className={`${style.gender_icon} ${style.sun}`}/>
         </UserInfoHeaderButton>
-        <UserInfoHeaderButton thisPageIndex={3} currentPageIndex={pageIndex} clickHandler={clickHandler}
+
+        <UserInfoHeaderButton thisPageIndex={5} currentPageIndex={pageIndex} clickHandler={clickHandler}
                               currentUser={currentUser} userKey='sleepTime'>
           <Alarm className={style.gender_icon}/>
           <MoonStars className={`${style.gender_icon} ${style.moon}`}/>
@@ -98,7 +124,6 @@ const UserCreateContext = ({children}) => {
           </button>
         }
       </div>
-
     </>
   )
 };

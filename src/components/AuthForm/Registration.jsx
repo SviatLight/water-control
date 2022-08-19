@@ -41,8 +41,8 @@ const Registration = () => {
   });
 
   return (
-    <form className="d-grid gap-2 col-3 mx-auto" onSubmit={registrationHandler}>
-      <div className="form-floating mb-3">
+    <form className="d-grid gap-2 col-3 mx-auto mt-0" onSubmit={registrationHandler}>
+      <div className="form-floating">
         <input
           name="email"
           type="email"
@@ -51,9 +51,10 @@ const Registration = () => {
           placeholder="E-mail"
           onChange={event => validateUserEmail(event, setEmailValid, setEmailError)}/>
         <label htmlFor="floatingInput">E-mail</label>
-        {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
       </div>
-      <div className="form-floating mb-3">
+      {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
+
+      <div className="form-floating">
         <input
           type="password"
           name="password"
@@ -63,9 +64,10 @@ const Registration = () => {
           placeholder="Password"
           onChange={event => validateUserPassword(event, setPasswordValid, setPasswordError)}/>
         <label htmlFor="makePassword">Password</label>
-        {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
       </div>
-      <div className="form-floating mb-4">
+      {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
+
+      <div className="form-floating">
         <input
           type="password"
           name="passwordRepeat"
@@ -74,9 +76,10 @@ const Registration = () => {
           placeholder="Repeat your password"
           onChange={event => validateUserPasswordRepeat(event, setPasswordRepeatValid, setPasswordRepeatError, passwordRef.current.value)}/>
         <label htmlFor="makePasswordRep">Repeat your password</label>
-        {!passwordRepeatValid ? <div className={style.error}>{passwordRepeatError}</div> : <></>}
       </div>
-      <div className="d-grid gap-2 col-6 mx-auto">
+      {!passwordRepeatValid ? <div className={style.error}>{passwordRepeatError}</div> : <></>}
+
+      <div className="d-grid gap-2 col-6 mx-auto mt-3">
         <button
           className="btn btn-primary btn-lg btn-block"
           type="submit">
