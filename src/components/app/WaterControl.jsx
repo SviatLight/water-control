@@ -8,49 +8,53 @@ const WaterControl = () => {
   const [dailyRate, setDailyRate] = useState(1500);
   const [percentage, setPercentage] = useState(0);
   const [liters, setLiters] = useState(1500);
-  const [consumed, setConsumed] = useState(0);
+  let [consumed, setConsumed] = useState(0);
   const [glass, setGlass] = useState(300);
-  const [nubmerGlasses, setNubmerGlasses] = useState(0);
+  let [nubmerGlasses, setNubmerGlasses] = useState(20);
 
-  const vuputo = Math.round(consumed * 100 / dailyRate)
+  let vuputo = 0;
 
-  // const [glass, setGlass] = useState(0);
-  // const [consumed, setConsumed] = useState(0);
-  // const [nubmerGlasses, setNubmerGlasses] = useState(0);
 
-  // listers.innerHTML = `${dailyRate}`;
 
-  const remained = useRef();
+  const percentages = useRef();
+  const remaineds = useRef();
+
+
   const buttonClick = () =>  {
-    if (vuputo === 100 || vuputo > 100) {
+
+    const percentagesStyles = percentages.current.style;
+    const remainedsStyles = remaineds.current.style;
+    setNubmerGlasses(nubmerGlasses + 20)
+
+    if (percentagesStyles.height === "320px"){
+      remainedsStyles.height = 0;
+      percentagesStyles.height = 400 * nubmerGlasses / 100  + "px";
+      setConsumed(consumed + glass);
+      alert('Ви випили денну норму');
+    } else{
+      console.log(nubmerGlasses);
+      percentagesStyles.height = 400 * nubmerGlasses / 100  + "px";
+      console.log(percentagesStyles.height)
+      percentagesStyles.visibility = 'visible';
+      setConsumed(consumed + glass);
     }
-
-    console.log(percentage.style)
-    setNubmerGlasses(prev => prev + 20 )
-    setPercentage(prev => prev + 200);
-    setConsumed(prev => prev + glass)
-
   };
 
   return (
     <div className= {style.wrapper}>
-
-      {/* <div className={style.text_header}>Привіт</div> */}
       <div className={style.text_header_target}>{dailyRate} мл</div>
-      {/* <div className={style.text_header}>Ціль на сьогодні</div> */}
       <div className={style.cup}>
-        <div className={style.remained} id="remained"   >
-          <span id="liters">{liters} мл</span>
+        <div className={style.remained} id="remained"  ref={remaineds} >
+          <span id="liters">{liters - consumed} мл</span>
           <small>Remained</small>
         </div>
-        <div className={style.percentage} id="percentage" style={{height:`${400 * nubmerGlasses / 100}`+ "px"}}>{vuputo}%</div>
-
+        <div className={style.percentage} ref={percentages} id="percentage" >{nubmerGlasses - 20}%</div>
       </div>
-      <div className={style.wrapper_target}>
+      {/* <div className={style.wrapper_target}>
         <div id="watter_drunk" className={style.watter_drunk}>{consumed}</div>
         <div className={style.target_dash}>/</div>
         <div id="target" className={style.target}>{dailyRate}</div>
-      </div>
+      </div> */}
 
       <button className={style.button} onClick={() => buttonClick()} >Додати</button>
 

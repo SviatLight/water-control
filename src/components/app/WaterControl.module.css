@@ -2,6 +2,7 @@
 
 .wrapper{
   height: 100%;
+  padding-top: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,13 +26,12 @@
   font-size: 40px;
   display: flex;
   gap: 20px;
+  position: relative;
+  bottom: 140px;
 }
 
 .watter_drunk {
   margin-bottom: 30px;
-}
-
-.target {
 }
 
 
@@ -46,6 +46,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 
@@ -68,6 +69,7 @@
   font-size: 30px;
   height: 0;
   transition: 0.8s ease;
+  visibility: hidden;
 }
 
 
