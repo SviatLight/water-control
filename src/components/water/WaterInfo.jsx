@@ -32,18 +32,13 @@ const WaterInfo = () => {
     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     console.log('result', choise)
     let arr = [];
-    // localStorage.setItem('drinkTime', JSON.stringify(arr));
     let timeData = {
       time: moment(currentTime).format("hh:mm"),
       choise: choise,
     }
     arr = JSON.parse(localStorage.getItem('drinkTime') || '[]');
     arr.push(timeData)
-    console.log('ggggg', arr)
     localStorage.setItem('drinkTime', JSON.stringify(arr));
-    // localStorage.setItem("drinkTime", moment(currentTime).format("hh:mm"));
-    // localStorage.setItem("myChoise", choise)
-
   }
 
   const handleSelect = (item) => {
