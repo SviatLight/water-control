@@ -9,13 +9,23 @@ import bottle6 from '../../images/bottle300.png'
 import bottle7 from '../../images/bottle400.png'
 import moment from 'moment';
 import { useNavigate, useOutletContext } from "react-router-dom";
+import { ref, update } from "firebase/database";
 
 const WaterInfo = () => {
-  const { dbUser } = useOutletContext()
+  const { user, dbUser, setDbUser, db } = useOutletContext()
   const navigate = useNavigate()
 
   const [water, setWater] = useState("");
   const [choise, setChoise] = useState("");
+
+  const updateInfo = (amountWater) => {
+    const updUser = {
+      ...dbUser,
+      amountWater: amountWater
+    }
+    update(ref(db), { [user.uid]: updUser })
+    setDbUser(updUser)
+  }
 
   const data = [
     { image: bottle1, title: '100ml', id: '100' },
@@ -39,6 +49,8 @@ const WaterInfo = () => {
     arr = JSON.parse(localStorage.getItem('drinkTime') || '[]');
     arr.push(timeData)
     localStorage.setItem('drinkTime', JSON.stringify(arr));
+    updateInfo(choise)
+    navigate('/app')
   }
 
   const handleSelect = (item) => {

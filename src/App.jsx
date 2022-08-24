@@ -3,7 +3,6 @@ import style from './App.module.css';
 import Landing from './components/landing/Landing';
 import UserInfo from './components/measurements/UserInfo';
 import WaterInfo from './components/water/WaterInfo';
-import History from './components/HistoryWater/History';
 import LoginLayout from './components/AuthForm/LoginLayout'
 import Login from "./components/AuthForm/Login";
 import Registration from "./components/AuthForm/Registration";
@@ -31,7 +30,6 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route element={<LoginRequired />}>
               <Route path="/water_info" element={<WaterInfo />} />
-              <Route path="/history_water" element={<History />} />
             </Route>
           </Route>
           <Route path="/registration/weight" element={<UserInfo />} />

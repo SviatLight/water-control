@@ -2,7 +2,6 @@
   position: relative;
   width: 50%;
   margin: 10px auto;
-  margin-top: 15%;
 }
 
 
@@ -10,4 +9,9 @@ h4 {
   text-align: center;
   color: #10418a;
   margin-top: 5%;
+}
+
+button {
+  margin-top: 5%;
+  margin-bottom: 20%;
 }

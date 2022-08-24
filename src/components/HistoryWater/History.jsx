@@ -18,19 +18,18 @@ const History = () => {
 
   return (
     <div className={style.container}>
-      <div>
-        <h1>History</h1>
-        <div className="d-grid gap-2 col-6 mx-auto">
-          <button
-            className="btn btn-primary btn-lg btn-block"
-            onClick={clearHistory}>
-            Clear history
-          </button>
-        </div>
-        {
-          historyData?.map(item => <div><h4>You drunk at {item.time} - {item.choise} ml</h4></div>)
-        }
 
+      <h1>History</h1>
+
+      {
+        historyData?.map(item => <div><h4>You drunk at {item.time} - {item.choise} ml</h4></div>)
+      }
+      <div className="d-grid gap-2 col-6 mx-auto">
+        <button
+          className="btn btn-primary btn-lg btn-block"
+          onClick={clearHistory}>
+          Clear history
+        </button>
       </div>
     </div>
   );
