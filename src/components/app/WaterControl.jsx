@@ -59,12 +59,6 @@ const WaterControl = () => {
       </div>
       <label className={style.button}  onClick={() => buttonClick()} />
 
-{/*
-      <button type="submit" className={style.button} onClick={() => buttonClick()} >
-        <span className={style.span}></span>
-        <div className={style.liquid}></div>
-      </button> */}
-
     </div>
    );
 
