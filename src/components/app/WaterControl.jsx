@@ -1,7 +1,7 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 import style from "./WaterControl.module.css"
-
+import History from "../HistoryWater/History";
 
 const WaterControl = () => {
 
@@ -16,21 +16,21 @@ const WaterControl = () => {
   const remaineds = useRef();
 
 
-  const buttonClick = () =>  {
+  const buttonClick = () => {
     console.log(nubmerGlasses);
     const percentageStyles = percentage.current.style;
     const remainedsStyles = remaineds.current.style;
     setNubmerGlasses(nubmerGlassess + nubmerGlasses)
 
-    if (nubmerGlasses === 100 || nubmerGlasses > 100){
+    if (nubmerGlasses === 100 || nubmerGlasses > 100) {
       remainedsStyles.height = 0;
       remainedsStyles.visibility = "hidden";
-      percentageStyles.height = 400 * nubmerGlasses / 100  + "px";
+      percentageStyles.height = 400 * nubmerGlasses / 100 + "px";
       setConsumed(consumed + glass);
       alert('Ви випили денну норму');
-    } else{
+    } else {
       console.log(nubmerGlasses)
-      percentageStyles.height = 400 * nubmerGlasses / 100  + "px";
+      percentageStyles.height = 400 * nubmerGlasses / 100 + "px";
       console.log(percentageStyles.height)
       percentageStyles.visibility = 'visible';
       setConsumed(consumed + glass);
@@ -38,7 +38,7 @@ const WaterControl = () => {
   };
 
   return (
-    <div className= {style.wrapper}>
+    <div className={style.wrapper}>
       {/* <div className={style.text_header_target}>{dailyRate} мл</div> */}
       <div className={style.wrapper_target}>
         <div id="watter_drunk" className={style.watter_drunk}>{consumed}</div>
@@ -47,7 +47,7 @@ const WaterControl = () => {
       </div>
 
       <div className={style.cup}>
-        <div className={style.remained} id="remained"  ref={remaineds} >
+        <div className={style.remained} id="remained" ref={remaineds} >
           <span id="liters">{dailyRate - consumed} мл</span>
           <small>Remained</small>
         </div>
@@ -55,9 +55,9 @@ const WaterControl = () => {
       </div>
 
       <button className={style.button} onClick={() => buttonClick()} >Додати</button>
-
+      <History />
     </div>
-   );
+  );
 
 }
 
