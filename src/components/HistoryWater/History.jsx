@@ -1,5 +1,5 @@
 import style from './History.module.css';
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 
 const History = () => {
@@ -26,7 +26,7 @@ const History = () => {
       }
       <div className="d-grid gap-2 col-6 mx-auto">
         <button
-          className="btn btn-primary btn-lg btn-block"
+          className={`btn btn-primary btn-lg btn-block ${style.clear_history}`}
           onClick={clearHistory}>
           Clear history
         </button>

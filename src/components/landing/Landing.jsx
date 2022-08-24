@@ -2,34 +2,13 @@ import style from './Landing.module.css'
 import background from '../../images/landingBackground.jpg';
 import React from "react";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Landing = () => {
   const navigate = useNavigate()
-  const {user} = useOutletContext()
+  const {user, userHasSettings} = useOutletContext()
 
   return (
-    <header className={style.header}>
-      <nav className={style.headerMenu}>
-        <h2>Water Control</h2>
-        <ul className={style.menu}>
-          <li className={style.menuItem}><a href="/" className={style.menuLink}>About</a></li>
-          <li className={style.menuItem}><a href="/" className={style.menuLink}>How It Work</a></li>
-          <li className={style.menuItem}><a href="/" className={style.menuLink}>FAQ</a></li>
-          {user ?
-            (
-              <div>
-                <BurgerMenu/>
-              </div>
-            )
-            :
-            (
-              <div>
-                <button className="btn btn-success" onClick={() => navigate('/login')}>Sign in</button>
-              </div>
-            )}
-        </ul>
-      </nav>
+    <div className={style.header}>
       <div className={style.headerContent}>
         <section className={style.headerContainer}>
           <h2>Water</h2>
@@ -37,19 +16,21 @@ const Landing = () => {
             your caloric load and improve the function of all your tissues.”</p>
 
           {user ?
-            (
-              <button className='btn btn-primary' onClick={() => navigate('/')}>Start</button>
-            )
+
+            userHasSettings
+              ? <button className='btn btn-primary' onClick={() => navigate('/app')}>Start</button>
+              : <button className='btn btn-primary' onClick={() => navigate('/setup/gender')}>Start settings</button>
+
             :
             (
-              <button className="btn btn-success" onClick={() => navigate('/login')}>Start</button>
+              <button className="btn btn-success" onClick={() => navigate('/login')}>Sign in</button>
             )}
         </section>
         <div className={style.headerImg}>
           <img src={background} className={style.backgroundImgLanding} alt="background"/>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 

@@ -66,9 +66,9 @@ const Login = () => {
       </div>
       {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
 
-      <div className="d-grid gap-2 col-6 mx-auto mt-3">
+      <div className="d-grid col-6 mx-auto">
         <button
-          className="btn btn-primary btn-lg btn-block"
+          className="btn btn-primary btn-lg btn-block mb-2"
           type="submit">
           Login
         </button>
