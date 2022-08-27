@@ -1,20 +1,20 @@
-import React, {useState, useRef, useContext, useCallback} from 'react';
+import React, { useState, useRef, useContext, useCallback } from 'react';
 import style from "./AuthForm.module.css"
 import {
   validateUserEmail,
   validateUserPassword,
   validateUserPasswordRepeat
 } from "../../helpers/authUtils";
-import {FirebaseContext} from "../../config";
-import {createUserWithEmailAndPassword} from "firebase/auth"
-import {useNavigate} from "react-router-dom";
-import {capitalizeFirstLetter} from "../../helpers/utils";
-import {toast} from "react-toastify";
+import { FirebaseContext } from "../../config";
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { useNavigate } from "react-router-dom";
+import { capitalizeFirstLetter } from "../../helpers/utils";
+import { toast } from "react-toastify";
 
 
 const Registration = () => {
   const navigate = useNavigate()
-  const {auth} = useContext(FirebaseContext)
+  const { auth } = useContext(FirebaseContext)
 
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState("Password cannot be empty");
@@ -28,11 +28,11 @@ const Registration = () => {
 
   const registrationHandler = useCallback(async event => {
     event.preventDefault();
-    const {email, password} = event.target.elements;
+    const { email, password } = event.target.elements;
     try {
       await createUserWithEmailAndPassword(auth, email.value, password.value).then(() => {
         toast.success('You have successfully registered')
-        navigate('/')
+        navigate('/setup/gender')
       });
     } catch (error) {
       const errorText = capitalizeFirstLetter(error.code.split('/').at(-1).replaceAll('-', ' '))
@@ -49,7 +49,7 @@ const Registration = () => {
           className="form-control"
           id="floatingInput"
           placeholder="E-mail"
-          onChange={event => validateUserEmail(event, setEmailValid, setEmailError)}/>
+          onChange={event => validateUserEmail(event, setEmailValid, setEmailError)} />
         <label htmlFor="floatingInput">E-mail</label>
       </div>
       {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
@@ -62,7 +62,7 @@ const Registration = () => {
           id="makePassword"
           ref={passwordRef}
           placeholder="Password"
-          onChange={event => validateUserPassword(event, setPasswordValid, setPasswordError)}/>
+          onChange={event => validateUserPassword(event, setPasswordValid, setPasswordError)} />
         <label htmlFor="makePassword">Password</label>
       </div>
       {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
@@ -74,7 +74,7 @@ const Registration = () => {
           className="form-control"
           id="makePasswordRep"
           placeholder="Repeat your password"
-          onChange={event => validateUserPasswordRepeat(event, setPasswordRepeatValid, setPasswordRepeatError, passwordRef.current.value)}/>
+          onChange={event => validateUserPasswordRepeat(event, setPasswordRepeatValid, setPasswordRepeatError, passwordRef.current.value)} />
         <label htmlFor="makePasswordRep">Repeat your password</label>
       </div>
       {!passwordRepeatValid ? <div className={style.error}>{passwordRepeatError}</div> : <></>}
