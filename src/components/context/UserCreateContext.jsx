@@ -27,7 +27,8 @@ const UserCreateContext = ({ children }) => {
     userWeight: null,
     wakeUp: null,
     sleepTime: null,
-    amountWater: null
+    amountWater: null,
+    historyOfDrunkWater: {}
   });
   const setupPages = ['gender', 'user_name', 'user_age', 'user_weight', 'wake_up', 'sleep_time']
   const location = useLocation();
