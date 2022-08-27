@@ -15,3 +15,8 @@ h4 {
   margin-top: 5%;
   margin-bottom: 20%;
 }
+
+.history {
+  max-height: 300px;
+  overflow: auto;
+}
