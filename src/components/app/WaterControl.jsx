@@ -1,22 +1,46 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 // import { Prev } from "react-bootstrap/esm/PageItem";
 import style from "./WaterControl.module.css"
 import History from "../HistoryWater/History";
+import moment from 'moment';
+import { useOutletContext } from "react-router-dom";
 
 const WaterControl = () => {
+  const { dbUser } = useOutletContext();
 
   const [dailyRate, setDailyRate] = useState(1500);
   let [consumed, setConsumed] = useState(0);
   const [glass, setGlass] = useState(300);
   let nubmerGlassess = Math.round(glass / dailyRate * 100);
   let [nubmerGlasses, setNubmerGlasses] = useState(nubmerGlassess);
-
+  const [waterHistory, setWaterHistory] = useState([]);
 
   const percentage = useRef();
   const remaineds = useRef();
 
+  // TODO: dailyRate and glass should take from DB
+  // useEffect(() => {
+  //   const dailyRateWater = +dbUser.userWeight * 30;
+  //   const waterAmount = +dbUser.amountWater;
+  //   setDailyRate(dailyRateWater);
+  //   setGlass(waterAmount);
+  // }, [dbUser]);
+
+  const historyInfo = () => {
+    const currentTime = moment();
+    let timeData = {
+      time: moment(currentTime).format("hh:mm"),
+      amountWater: dbUser.amountWater
+    }
+    setWaterHistory([...waterHistory, timeData])
+  }
+
+  const clearHistory = () => {
+    setWaterHistory([])
+  }
 
   const buttonClick = () => {
+    historyInfo()
     console.log(nubmerGlasses);
     const percentageStyles = percentage.current.style;
     const remainedsStyles = remaineds.current.style;
@@ -55,7 +79,7 @@ const WaterControl = () => {
       </div>
 
       <button className={style.button} onClick={() => buttonClick()} >Додати</button>
-      <History />
+      <History historyData={waterHistory} clearHistory={clearHistory} />
     </div>
   );
 
