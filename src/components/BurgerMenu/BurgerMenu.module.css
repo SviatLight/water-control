@@ -1,0 +1,145 @@
+.burger_menu {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  visibility: hidden;
+}
+
+.burger_menu.active {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+  z-index: 1;
+}
+
+.burger_menu_content {
+  padding: 20px;
+  background-color: #fff;
+  width: 25%;
+  height: 100%;
+  transition: all 0.4s;
+  overflow-y: scroll;
+}
+
+.no_settings {
+  text-align: center;
+  margin-top: 20%;
+  display: grid;
+  gap: 15%;
+}
+
+.burger_user_info {
+  display: grid;
+  gap: 7%;
+  margin-top: 12%;
+}
+
+.burger_icons {
+  width: 35px;
+  height: 35px;
+  color: #0d6efd;
+}
+
+.burger_icon_close {
+  color: darkred;
+  float: right;
+}
+
+.burger_icons:hover {
+  cursor: pointer;
+}
+
+.burger_icon_person_no_settings {
+  width: 60px;
+  height: 60px;
+  margin-left: 40%;
+}
+
+.burger_icon_pencil {
+  margin-left: 2%;
+  margin-top: -1%;
+  color: #0d6efd;
+}
+
+.burger_person {
+  width: 60px;
+  height: 60px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 50%;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: center;
+  margin-left: 45%;
+  text-transform: capitalize;
+}
+
+.burger_info {
+  font-weight: bold;
+}
+
+.burger_change_info {
+  font-size: 14px;
+  padding-left: 50%;
+  color: #0d6efd;
+}
+
+.burger_change_info:hover {
+  cursor: pointer;
+}
+
+.burger_change_apply {
+  color: green;
+  font-size: 18px;
+}
+
+.burger_icon_change_apply {
+  color: green;
+}
+
+.burger_change_cancel {
+  color: darkred;
+  font-size: 18px;
+}
+
+.burger_icon_change_cancel {
+  color: darkred;
+}
+
+.burger_edit_bnt {
+  float: right;
+}
+
+.burger_input_change {
+  height: 25px;
+  width: 73%;
+  border-color: #5495f8;
+  margin-top: 0;
+}
+
+.burger_gender_select {
+  padding-top: 1px;
+}
+
+.burger_time_colon {
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.grid_div {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.grid_line {
+  display: flex;
+}

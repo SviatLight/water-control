@@ -43,8 +43,8 @@ const Login = () => {
     });
 
   return (
-    <form className="d-grid gap-2 col-3 mx-auto" onSubmit={loginHandler}>
-      <div className="form-floating mb-3">
+    <form className="d-grid gap-2 col-3 mx-auto mt-0" onSubmit={loginHandler}>
+      <div className="form-floating">
         <input type="email"
                name="email"
                className="form-control"
@@ -52,8 +52,8 @@ const Login = () => {
                placeholder="E-mail"
                onChange={event => validateUserEmail(event, setEmailValid, setEmailError)}/>
         <label htmlFor="floatingInput">E-mail</label>
-        {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
       </div>
+      {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
 
       <div className="form-floating">
         <input type="password"
@@ -63,12 +63,12 @@ const Login = () => {
                placeholder="Password"
                onChange={event => validateUserPassword(event, setPasswordValid, setPasswordError)}/>
         <label htmlFor="floatingPassword">Password</label>
-        {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
       </div>
+      {!passwordValid ? <div className={style.error}>{passwordError}</div> : <></>}
 
-      <div className="d-grid gap-2 col-6 mx-auto">
+      <div className="d-grid col-6 mx-auto">
         <button
-          className="btn btn-primary btn-lg btn-block"
+          className="btn btn-primary btn-lg btn-block mb-2"
           type="submit">
           Login
         </button>

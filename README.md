@@ -9,3 +9,4 @@
   - firebase
   - react-firebase-hooks
   - react-toastify
+  - moment

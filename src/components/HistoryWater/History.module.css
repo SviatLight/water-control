@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  width: 50%;
+  margin: 10px auto;
+}
+
+
+h4 {
+  text-align: center;
+  color: #10418a;
+  margin-top: 5%;
+}
+
+.clear_history {
+  margin-top: 5%;
+  margin-bottom: 20%;
+}
+
+.history {
+  max-height: 300px;
+  overflow: auto;
+}
