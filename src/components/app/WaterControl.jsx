@@ -36,7 +36,7 @@ const WaterControl = () => {
       drawWaterPercent()
     }
   }, [dbUser]);
-
+  
   const clearHistory = () => {
     setWaterHistory({})
   }
@@ -84,7 +84,6 @@ const WaterControl = () => {
         <div className={style.target_dash}>/</div>
         <div id="target" className={style.target}>{dailyRate.toString()}</div>
       </div>
-
       <div className={style.cup}>
         <div className={style.remained} id="remained" ref={remains}>
           <span id="liters">{dailyRate - drunkToday} мл</span>

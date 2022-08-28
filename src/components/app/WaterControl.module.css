@@ -1,8 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular,700&display=swap);
+
 
 .wrapper{
-  height: 100%;
-  padding-top: 75px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,29 +74,22 @@
   visibility: hidden;
 }
 
-
-.button{
-  height: 80px;
-  width: 200px;
-  font-size: 30px;
-  color: rgb(21, 30, 59);
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 30px;
-  margin: 10px 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  border-radius: 0 0 20px 20px;
-  transition: .15s ease-in-out;
+ .button {
   position: relative;
-  bottom: 70px;
+  cursor: pointer;
+  width: 250px;
+  height: 250px;
+  padding: 0;
+  background-image: url(photo/water_glass_PNG15232.png) ;
+  background-size: cover;
+  background-position: center;
+  bottom: 205px;
+  left: 135px;
+  z-index: 1;
 }
 
-.button:hover {
-  box-shadow: 0 0 10px 0 #1f191c inset, 0 0 10px 4px #140d12;
-  color: #000000;
-  }
+.target_done{
+  font-family: monospace;
+  font-size: 2em;
+}
 
-.button:active {
-  opacity: 0.85;
- }
