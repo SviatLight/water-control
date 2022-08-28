@@ -3,7 +3,7 @@
 
 
 .wrapper{
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,18 +74,21 @@
   visibility: hidden;
 }
 
- .button {
+.glassOfWater {
+  margin-bottom: 50px;
   position: relative;
-  cursor: pointer;
-  width: 250px;
-  height: 250px;
-  padding: 0;
-  background-image: url(photo/water_glass_PNG15232.png) ;
-  background-size: cover;
-  background-position: center;
-  bottom: 205px;
-  left: 135px;
-  z-index: 1;
+}
+
+.glassOfWater img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform:translate(-50%);
+  z-index: 2;
+}
+
+.glassOfWater img:hover {
+  opacity: .5;
 }
 
 .target_done{

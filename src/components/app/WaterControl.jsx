@@ -5,6 +5,7 @@ import moment from 'moment';
 import {useOutletContext} from "react-router-dom";
 import {toast} from "react-toastify";
 import {ref, update} from "firebase/database";
+import glassOfWater from '../../images/glass-of-water.png'
 
 const WaterControl = () => {
   const {db, user, dbUser, setDbUser} = useOutletContext();
@@ -36,7 +37,7 @@ const WaterControl = () => {
       drawWaterPercent()
     }
   }, [dbUser]);
-  
+
   const clearHistory = () => {
     setWaterHistory({})
   }
@@ -92,7 +93,9 @@ const WaterControl = () => {
         <div className={style.percentage} ref={percentage} id="percentage">{drinkTodayPercent}%</div>
       </div>
 
-      <button className={style.button} onClick={addWater}>Додати</button>
+      <div className={style.glassOfWater} onClick={addWater}>
+        <img src={glassOfWater} alt="glassOfWater" />
+      </div>
       <History historyData={waterHistory} clearHistory={clearHistory}/>
     </div>
   );
