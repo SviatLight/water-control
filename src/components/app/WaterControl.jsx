@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import style from "./WaterControl.module.css"
-// import { Prev } from "react-bootstrap/esm/PageItem";
+// import { bounce } from 'react-animations';
 
 
 const WaterControl = () => {

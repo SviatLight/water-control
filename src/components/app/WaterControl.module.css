@@ -150,18 +150,7 @@
 
 
 .target_done{
-  font-family: Amatic, sans-serif;
-  font-size: 40px;
+  font-family: monospace;
+  font-size: 2em;
 }
-
-
-@keyframes animate {
-  0% {
-    transform: translate(-50%, -75%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -75%) rotate(360deg);
-  }
-}
-
 
