@@ -4,6 +4,7 @@ import {Check, Pencil, PersonCircle, X, XLg} from "react-bootstrap-icons";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import {ref, update} from "firebase/database";
 import {toast} from "react-toastify";
+import moment from "moment/moment";
 
 const BurgerMenu = () => {
   const [active, setActive] = useState(false)
@@ -20,9 +21,11 @@ const BurgerMenu = () => {
   const amountWaterRef = useRef();
 
   const navigate = useNavigate()
+  const curDate = moment().format('MM-DD-YYYY')
 
   const updateInfo = () => {
     const updUser = {
+      ...dbUser,
       userName: nameRef.current.value || nameRef.current.placeholder,
       gender: genderRef.current.value || genderRef.current.placeholder,
       userAge: ageRef.current.value || ageRef.current.placeholder,
@@ -130,8 +133,19 @@ const BurgerMenu = () => {
                   ? <input ref={amountWaterRef} type='number'
                            className={`form-control ${style.burger_input_change}`}
                            defaultValue={dbUser.amountWater}/>
-                  : <span className={style.burger_info}> {dbUser.amountWater} ml </span>
+                  : <span
+                    className={style.burger_info}> {dbUser.amountWater == null ? '0' : dbUser.amountWater} ml </span>
                 }
+              </div>
+
+              <div>
+                Drunk water today: <span className={style.burger_info}>
+                {dbUser.historyOfDrunkWater
+                  ? dbUser.historyOfDrunkWater[curDate]
+                    ? Object.values(dbUser.historyOfDrunkWater[curDate]).reduce((a, b) => a + b, 0)
+                    : 0
+                  : 0} ml
+              </span>
               </div>
 
               <div className={style.burger_change_info}>

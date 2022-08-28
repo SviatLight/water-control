@@ -1,14 +1,15 @@
 import style from './History.module.css';
 
-const History = ({ historyData, clearHistory }) => {
-
+const History = ({historyData, clearHistory}) => {
   return (
     <div className={style.container}>
 
       <h1>History</h1>
       <div className={style.history}>
         {
-          historyData?.map(item => <div><h4>You drunk at {item.time} - {item.amountWater} ml</h4></div>)
+          Object.entries(historyData).map(([time, ml], index) => <div key={index + 1}>
+                                                                                  <h4>You drunk at {time}- {ml} ml</h4>
+                                                                                </div>)
         }
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
