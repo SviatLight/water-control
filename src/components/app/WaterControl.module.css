@@ -2,7 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular,700&display=swap);
 
 
-
 .wrapper{
   height: 100vh;
   display: flex;
@@ -88,66 +87,6 @@
   left: 135px;
   z-index: 1;
 }
-
-
-
-
-/*
-.span {
-  position: relative;
-  color: #fff;
-  font-size: 20px;
-  font-family: Arial;
-  letter-spacing: 8px;
-  z-index: 1;
-}
-
-.button .liquid {
-  position: absolute;
-  top: -80px;
-  left: 0;
-  width: 200px;
-  height: 200px;
-  background: #4973ff;
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
-  transition: .5s;
-}
-
-.button .liquid::after,
-.button .liquid::before {
-  content: '';
-  width: 200%;
-  height: 200%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -75%);
-  background: #000;
-  background: white;
-}
-
-.button .liquid::before {
-
-  border-radius: 45%;
-  background: rgba(20, 20, 20, 1);
-  background: white;
-  animation: animate 5s linear infinite;
-}
-
-.button.liquid::after {
-
-  border-radius: 40%;
-  background: rgba(20, 20, 20, .5);
-  background: white;
-
-  animation: animate 10s linear infinite;
-}
-
-.button:hover .liquid{
-  top: -120px;
-} */
-
-
 
 .target_done{
   font-family: monospace;

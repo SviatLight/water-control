@@ -47,7 +47,7 @@ const WaterControl = () => {
       {/* <div className={style.text_header_target}>{dailyRate} мл</div> */}
       {consumed < dailyRate ? <div className={style.wrapper_target}>
         <div id="watter_drunk" className={style.watter_drunk}>{consumed} / {dailyRate}</div>
-      </div>:<div className = {style.target_done} >Ви досягнули денну норму</div>}
+      </div>:<div className = {style.target_done} >Ви досягнули денну норму!</div>}
 
       <div className={style.cup}>
         <div className={style.remained} id="remained"  ref={remaineds} >
