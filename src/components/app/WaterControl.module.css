@@ -1,23 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular,700&display=swap);
 
-
-.wrapper{
+.wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .text_header {
   font-size: 40px;
-  color: #000000
-
+  color: #000000;
 }
 
-.text_header_target{
+.text_header_target {
   font-size: 80px;
   color: rgb(62, 84, 114);
   font-weight: 700;
@@ -35,7 +33,6 @@
   margin-bottom: 30px;
 }
 
-
 .cup {
   background-color: #fff;
   box-shadow: 0 2px 20px rgb(0 0 0 / 15%);
@@ -50,7 +47,6 @@
   position: relative;
   z-index: 1;
 }
-
 
 .remained {
   display: flex;
@@ -83,16 +79,15 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  transform:translate(-50%);
+  transform: translate(-50%);
   z-index: 2;
 }
 
 .glassOfWater img:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.target_done{
+.target_done {
   font-family: monospace;
   font-size: 2em;
 }
-
