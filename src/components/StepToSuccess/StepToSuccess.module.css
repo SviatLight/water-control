@@ -1,0 +1,89 @@
+.section_wrapper {
+  padding: 10rem 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+.section_title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(-45deg, #3db3c5, #274685);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 31% 31% 31%;
+  justify-content: space-between;
+}
+
+.stepToSuccess {
+  text-align: center !important;
+}
+
+.step_icon_wrapper {
+  background: linear-gradient(-45deg, #3b87bd, #2d71a2);
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 30px 0 rgb(0 0 0 / 20%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step_icon {
+  font-size: 40px;
+  line-height: 0;
+  color: #fff;
+}
+
+.step_title {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+
+.step_text {
+  color: #b1b1b1;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .row {
+    grid-template-columns: 29% 29% 29%;
+  }
+}
+
+@media (min-width: 581px) and (max-width: 768px) {
+  .row {
+    display: block;
+  }
+
+  .container {
+    grid-template-columns: 15% 70% 15%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .extra_div {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .row {
+    display: block;
+  }
+}
