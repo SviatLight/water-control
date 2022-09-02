@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+.wrapper {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+.section ul {
+  padding: 0;
+}
+
+.wrapperSections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.sectionHeader {
+  margin-bottom: 25px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.listItem a {
+  cursor: pointer;
+  color: #212529;
+  font-size: 14px;
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.AboutDescription {
+  opacity: 0.85;
+  width: 400px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #6e6e6e;
+}
+
+.wrapperSocial {
+  display: flex;
+  margin-left: 15px;
+  padding: 0;
+  gap: 15px;
+}
+
+.wrapperSocial li {
+  background: #e2dfdf;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+.wrapperSocial li a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  overflow: hidden;
+}
+
+/*  */
+.footerDescription {
+  text-align: center;
+  font-size: 14px;
+  color: #6e6e6e;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+
+.footerDescription span {
+  color: #000000;
+}
