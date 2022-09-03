@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect } from "react";
+import {useState, useRef, useEffect} from "react";
 import style from "./WaterControl.module.css";
 import History from "../HistoryWater/History";
 import moment from "moment";
-import { useOutletContext } from "react-router-dom";
-import { toast } from "react-toastify";
-import { ref, update } from "firebase/database";
+import {useOutletContext} from "react-router-dom";
+import {toast} from "react-toastify";
+import {ref, update} from "firebase/database";
 import glassOfWater from "../../images/glass-of-water.png";
 
 const WaterControl = () => {
-  const { db, user, dbUser, setDbUser } = useOutletContext();
+  const {db, user, dbUser, setDbUser} = useOutletContext();
 
   const percentage = useRef();
   const remains = useRef();
@@ -28,9 +28,9 @@ const WaterControl = () => {
       const totalDrink = dbUser.historyOfDrunkWater
         ? dbUser.historyOfDrunkWater[curDate]
           ? Object.values(dbUser.historyOfDrunkWater[curDate]).reduce(
-              (a, b) => a + b,
-              0
-            )
+            (a, b) => a + b,
+            0
+          )
           : 0
         : 0;
 
@@ -62,7 +62,7 @@ const WaterControl = () => {
       historyOfDrunkWater: historyOfWater,
     };
     setDbUser(updUser);
-    update(ref(db), { [user.uid]: updUser });
+    update(ref(db), {[user.uid]: updUser});
   };
 
   const drawWaterPercent = () => {
@@ -85,30 +85,35 @@ const WaterControl = () => {
   };
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.wrapper_target}>
-        <div id="watter_drunk" className={style.watter_drunk}>
-          {drunkToday.toString()}
+    <div className={style.water_control_wrapper}>
+      <div className={style.background_div}></div>
+      <div className={style.wrapper}>
+        <div className={style.wrapper_target}>
+          <div id="watter_drunk" className={style.watter_drunk}>
+            {drunkToday.toString()}
+          </div>
+          <div className={style.target_dash}>/</div>
+          <div id="target" className={style.target}>
+            {dailyRate.toString()}
+          </div>
         </div>
-        <div className={style.target_dash}>/</div>
-        <div id="target" className={style.target}>
-          {dailyRate.toString()}
+        <div className={style.cup}>
+          <div className={style.remained} id="remained" ref={remains}>
+            <span id="liters">{dailyRate - drunkToday} мл</span>
+            <small>Remained</small>
+          </div>
+          <div className={style.percentage} ref={percentage} id="percentage">
+            {drinkTodayPercent}%
+          </div>
         </div>
-      </div>
-      <div className={style.cup}>
-        <div className={style.remained} id="remained" ref={remains}>
-          <span id="liters">{dailyRate - drunkToday} мл</span>
-          <small>Remained</small>
-        </div>
-        <div className={style.percentage} ref={percentage} id="percentage">
-          {drinkTodayPercent}%
-        </div>
-      </div>
 
-      <div className={style.glassOfWater} onClick={addWater}>
-        <img src={glassOfWater} alt="glassOfWater" />
+        <div className={style.glassOfWater} onClick={addWater}>
+          <img src={glassOfWater} alt="glassOfWater"/>
+        </div>
       </div>
-      <History historyData={waterHistory} clearHistory={clearHistory} />
+      <div>
+        <History historyData={waterHistory} clearHistory={clearHistory}/>
+      </div>
     </div>
   );
 };

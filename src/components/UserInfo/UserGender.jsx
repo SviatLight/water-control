@@ -34,7 +34,7 @@ const UserGender = () => {
           }
           onClick={() => setGender("female")}
         >
-          <img className={style.images} src={girl} />
+          <img className={`${style.images} ${style.female}`} src={girl} />
           <span>Female</span>
         </div>
       </div>
