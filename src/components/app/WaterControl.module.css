@@ -1,13 +1,28 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular,700&display=swap);
 
+.water_control_wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 0;
+  font-family: "Roboto", sans-serif;
+}
+
 .wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f9f9f9;
+}
+
+.background_div {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #4195d2;
+  border-radius: 0 0 400px 400px;
+  z-index: 1;
 }
 
 .text_header {
@@ -27,6 +42,7 @@
   gap: 20px;
   position: relative;
   top: 50px;
+  z-index: 2;
 }
 
 .watter_drunk {
@@ -90,4 +106,34 @@
 .target_done {
   font-family: monospace;
   font-size: 2em;
+}
+
+@media (min-width: 581px) and (max-width: 768px) {
+.water_control_wrapper {
+    display: block;
+  }
+  .water_control_wrapper {
+    margin-top: 0;
+  }
+
+  .background_div {
+    display: flex;
+    height: 55%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .water_control_wrapper {
+    display: block;
+  }
+
+  .background_div {
+    display: flex;
+    height: 45%;
+  }
+
+  .cup {
+    height: 300px;
+    width: 300px;
+  }
 }

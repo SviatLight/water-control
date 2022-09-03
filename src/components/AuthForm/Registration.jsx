@@ -1,19 +1,19 @@
-import React, { useState, useRef, useContext, useCallback } from "react";
+import React, {useState, useRef, useContext, useCallback} from "react";
 import style from "./AuthForm.module.css";
 import {
   validateUserEmail,
   validateUserPassword,
   validateUserPasswordRepeat,
 } from "../../helpers/authUtils";
-import { FirebaseContext } from "../../config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { capitalizeFirstLetter } from "../../helpers/utils";
-import { toast } from "react-toastify";
+import {FirebaseContext} from "../../config";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {useNavigate} from "react-router-dom";
+import {capitalizeFirstLetter} from "../../helpers/utils";
+import {toast} from "react-toastify";
 
 const Registration = () => {
   const navigate = useNavigate();
-  const { auth } = useContext(FirebaseContext);
+  const {auth} = useContext(FirebaseContext);
 
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState(
@@ -31,7 +31,7 @@ const Registration = () => {
 
   const registrationHandler = useCallback(async (event) => {
     event.preventDefault();
-    const { email, password } = event.target.elements;
+    const {email, password} = event.target.elements;
     try {
       await createUserWithEmailAndPassword(
         auth,
@@ -51,7 +51,7 @@ const Registration = () => {
 
   return (
     <form
-      className="d-grid gap-2 col-3 mx-auto mt-0"
+      className={style.form_wrapper}
       onSubmit={registrationHandler}
     >
       <div className="form-floating">
@@ -113,8 +113,8 @@ const Registration = () => {
         <></>
       )}
 
-      <div className="d-grid gap-2 col-6 mx-auto mt-3">
-        <button className="btn btn-primary btn-lg btn-block" type="submit">
+      <div className={style.form_btns}>
+        <button className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`} type="submit">
           Registration
         </button>
       </div>

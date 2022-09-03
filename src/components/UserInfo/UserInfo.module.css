@@ -2,6 +2,7 @@
   text-align: center;
   margin-top: 5%;
   color: blue;
+  font-family: "Roboto", sans-serif;
 }
 
 .user_info_container {
@@ -18,7 +19,7 @@
 }
 
 .gender:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .active {
@@ -113,4 +114,47 @@
 
 .moon {
   color: blue;
+}
+
+@media (min-width: 581px) and (max-width: 768px) {
+  .setup_btn {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .user_info_container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50%;
+  }
+
+  .gender {
+    justify-content: center;
+  }
+
+  .female {
+    margin-top: 5%;
+  }
+
+  .active {
+    margin: 10%;
+  }
+
+  .user_name {
+    margin-top: 15%;
+  }
+
+  .clock {
+    margin-top: 7%;
+  }
+
+  .setup_header {
+    justify-content: space-around;
+    gap: 1%;
+  }
+
+  .setup_btn {
+    width: 15%;
+  }
 }

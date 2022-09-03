@@ -1,22 +1,22 @@
-import React, { useState, useContext, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useState, useContext, useCallback} from "react";
+import {useNavigate} from "react-router-dom";
 import style from "./AuthForm.module.css";
 import {
   validateUserEmail,
   validateUserPassword,
 } from "../../helpers/authUtils";
-import { FirebaseContext } from "../../config";
+import {FirebaseContext} from "../../config";
 import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { toast } from "react-toastify";
-import { capitalizeFirstLetter } from "../../helpers/utils";
+import {toast} from "react-toastify";
+import {capitalizeFirstLetter} from "../../helpers/utils";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { auth } = useContext(FirebaseContext);
+  const {auth} = useContext(FirebaseContext);
 
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState(
@@ -36,7 +36,7 @@ const Login = () => {
 
   const loginHandler = useCallback(async (event) => {
     event.preventDefault();
-    const { email, password } = event.target.elements;
+    const {email, password} = event.target.elements;
     try {
       await signInWithEmailAndPassword(auth, email.value, password.value).then(
         () => {
@@ -55,7 +55,7 @@ const Login = () => {
   });
 
   return (
-    <form className="d-grid gap-2 col-3 mx-auto mt-0" onSubmit={loginHandler}>
+    <form className={style.form_wrapper} onSubmit={loginHandler}>
       <div className="form-floating">
         <input
           type="email"
@@ -90,13 +90,13 @@ const Login = () => {
         <></>
       )}
 
-      <div className="d-grid col-6 mx-auto">
-        <button className="btn btn-primary btn-lg btn-block mb-2" type="submit">
+      <div className={style.form_btns}>
+        <button className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`} type="submit">
           Login
         </button>
 
         <button
-          className="btn btn-primary btn-lg btn-block"
+          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
           type="submit"
           onClick={loginGoogleHandler}
         >
