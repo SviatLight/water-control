@@ -1,14 +1,16 @@
 import style from "./Landing.module.css";
 import background from "../../images/landingBackground.jpg";
 import React from "react";
-import {useNavigate, useOutletContext} from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import Step from "../StepToSuccess/Step";
-import {Person} from "react-bootstrap-icons";
+import { Person } from "react-bootstrap-icons";
 import StepsToSuccess from "../StepToSuccess/StepsToSuccess";
+import RegistrationSteps from "../RegistrationSteps/RegistrationSteps";
+import Footer from "../Footer/Footer";
 
 const Landing = () => {
   const navigate = useNavigate();
-  const {user, userHasSettings} = useOutletContext();
+  const { user, userHasSettings } = useOutletContext();
 
   return (
     <div className={style.header}>
@@ -45,7 +47,6 @@ const Landing = () => {
               Sign in
             </button>
           )}
-
         </section>
         <div className={style.headerImg}>
           <img
@@ -56,6 +57,8 @@ const Landing = () => {
         </div>
       </div>
       <StepsToSuccess />
+      <RegistrationSteps/>
+      <Footer/>
     </div>
   );
 };
