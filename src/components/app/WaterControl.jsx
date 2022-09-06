@@ -88,22 +88,26 @@ const WaterControl = () => {
     <div className={style.water_control_wrapper}>
       <div className={style.background_div}></div>
       <div className={style.wrapper}>
-        <div className={style.wrapper_target}>
-          <div id="watter_drunk" className={style.watter_drunk}>
-            {drunkToday.toString()}
-          </div>
-          <div className={style.target_dash}>/</div>
-          <div id="target" className={style.target}>
-            {dailyRate.toString()}
-          </div>
-        </div>
+
+
         <div className={style.cup}>
+          <div className={style.circle}>
+
+            <div className={style.wrapper_target}>
+              <div id="watter_drunk" className={style.watter_drunk}>
+                {drunkToday.toString()}
+              </div>
+              <div className={style.target_dash}>/</div>
+              <div id="target" className={style.target}>
+                {dailyRate.toString()}
+              </div>
+            </div>
+
+
+          </div>
           <div className={style.remained} id="remained" ref={remains}>
-            <span id="liters">{dailyRate - drunkToday} мл</span>
-            <small>Remained</small>
           </div>
           <div className={style.percentage} ref={percentage} id="percentage">
-            {drinkTodayPercent}%
           </div>
         </div>
 
