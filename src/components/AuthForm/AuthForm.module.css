@@ -1,4 +1,11 @@
 .form_wrapper {
+  position: relative;
+  margin: 10px auto;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 40%;
 }
 

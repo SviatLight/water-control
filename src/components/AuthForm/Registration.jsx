@@ -54,7 +54,7 @@ const Registration = () => {
       className={style.form_wrapper}
       onSubmit={registrationHandler}
     >
-      <div className="form-floating">
+      <div className="form-floating mb-3">
         <input
           name="email"
           type="email"
@@ -69,7 +69,7 @@ const Registration = () => {
       </div>
       {!emailValid ? <div className={style.error}>{emailError}</div> : <></>}
 
-      <div className="form-floating">
+      <div className="form-floating mb-3">
         <input
           type="password"
           name="password"

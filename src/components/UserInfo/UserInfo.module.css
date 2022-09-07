@@ -32,7 +32,7 @@
   width: 250px;
 }
 
-.user_name {
+.info_input {
   margin-top: 55%;
 }
 
@@ -141,7 +141,7 @@
     margin: 10%;
   }
 
-  .user_name {
+  .info_input {
     margin-top: 15%;
   }
 

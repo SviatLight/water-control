@@ -23,7 +23,7 @@ const UserName = () => {
         <div>
           <input
             type="name"
-            className={`form-control ${style.user_name}`}
+            className={`form-control ${style.info_input}`}
             id="floatingInput"
             placeholder="Your name"
             onChange={(e) => setName(e.target.value)}
