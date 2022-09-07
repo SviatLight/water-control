@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <form className={style.form_wrapper} onSubmit={loginHandler}>
-      <div className="form-floating">
+      <div className="form-floating mb-3">
         <input
           type="email"
           name="email"
