@@ -18,13 +18,14 @@
   opacity: 1;
   pointer-events: all;
   visibility: visible;
-  z-index: 1;
+  z-index: 5;
 }
 
 .burger_menu_content {
   padding: 20px;
   background-color: #fff;
   width: 25%;
+  min-width: 250px;
   height: 100%;
   transition: all 0.4s;
   overflow-y: scroll;
@@ -142,4 +143,16 @@
 
 .grid_line {
   display: flex;
+}
+
+@media (min-width: 581px) and (max-width: 950px) {
+  .burger_menu_content {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .burger_menu_content {
+    width: 50%;
+  }
 }

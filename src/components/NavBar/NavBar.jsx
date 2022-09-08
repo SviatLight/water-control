@@ -19,6 +19,9 @@ const NavBar = () => {
         <li className={style.menuItem}>
           <a href="/">FAQ</a>
         </li>
+        <li className={style.menuItem}>
+          <a href="/feedback">Feedbacks</a>
+        </li>
         {user ? (
           <div>
             <BurgerMenu />
