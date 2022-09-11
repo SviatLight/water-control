@@ -1,12 +1,12 @@
 import React from "react";
-import NavBar from "./NavBar";
 import { Outlet, useOutletContext } from "react-router-dom";
+import Header from "../Header/Header";
 
 const NavBarLayout = ({ children }) => {
   const context = useOutletContext();
   return (
     <>
-      <NavBar />
+      <Header />
       {children}
       <Outlet context={context} />
     </>
