@@ -1,58 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./NavBar.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { user } = useOutletContext();
-  const [headerBgColor, setHeaderBgColor] = useState("transparent")
-
-  const listenScrollEvent = () => {
-    window.scrollY < 300
-      ? setHeaderBgColor("transparent")
-      : setHeaderBgColor("rgba(39, 70, 133, 0.8)")
-  }
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
-  });
-  const profileButton = () => {
-    return (
-      user ? (
-        <div className={style.profile} >
-          <BurgerMenu />
-        </div >
-      ) : (
-        <div className={style.profile} >
-          <button
-            className="btn btn-primary"
-            onClick={() => navigate("/login")}>
-            Sign in
-          </button>
-        </div>
-      )
-    )
-  }
+  const location = useLocation();
+  const isHome = location.pathname == '/';
 
   return (
-    <div>
-      <header id="header" className="fixed-top d-flex align-items-center content" style={{ backgroundColor: ` ${headerBgColor}`, height: '80px' }}>
-        <div className={`container d-flex justify-content-between align-items-center ${style.content}`}>
-          <div className={style.logo}>
-            <h1><a href="index.html">Water Control</a></h1>
+    <header className={style.nav_bar} style={{ display: isHome ? 'none' : 'flex' }}>
+      <h2>Water Control</h2>
+      <ul className={style.nav_bar_menu}>
+        <li className={style.menuItem}>
+          <a href="/">About</a>
+        </li>
+        <li className={style.menuItem}>
+          <a href="/">How It Work</a>
+        </li>
+        <li className={style.menuItem}>
+          <a href="/">FAQ</a>
+        </li>
+        <li className={style.menuItem}>
+          <a href="/feedback">Feedbacks</a>
+        </li>
+        {user ? (
+          <div>
+            <BurgerMenu />
           </div>
-          <nav className={style.navbar}>
-            <ul>
-              <li><a href="/">About</a></li>
-              <li><a href="/">How It Work</a></li>
-              <li><a href="/">FAQ</a></li>
-              <li><a href="/feedback">Feedbacks</a></li>
-            </ul>
-          </nav>
-          {profileButton()}
-        </div>
-      </header >
-    </div >
+        ) : (
+          <div>
+            <button
+              className="btn btn-success"
+              onClick={() => navigate("/login")}
+            >
+              Sign in
+            </button>
+          </div>
+        )}
+      </ul>
+    </header>
   );
 };
 
