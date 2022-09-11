@@ -16,7 +16,7 @@
     url(../../images/header-bg.jpg);
   position: relative;
   display: flex;
-  padding-top: 5%;
+  padding-top: 10%;
 }
 
 .header .wave {
@@ -80,6 +80,10 @@
 
   .description {
     width: 100%;
+  }
+
+  .header {
+    padding-top: 20%;
   }
 
   .header h1 {

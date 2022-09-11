@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Header.module.css";
 import waterIcn from "../../images/water.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Header = () => {
 
   return (
     <section className={style.header}>
+      <NavBar />
       <div className={style.wave}>
         <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink">
