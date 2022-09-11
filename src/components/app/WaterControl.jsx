@@ -1,14 +1,14 @@
-import {useState, useRef, useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import style from "./WaterControl.module.css";
 import History from "../HistoryWater/History";
 import moment from "moment";
-import {useOutletContext} from "react-router-dom";
-import {toast} from "react-toastify";
-import {ref, update} from "firebase/database";
+import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
+import { ref, update } from "firebase/database";
 import glassOfWater from "../../images/glass-of-water.png";
 
 const WaterControl = () => {
-  const {db, user, dbUser, setDbUser} = useOutletContext();
+  const { db, user, dbUser, setDbUser } = useOutletContext();
 
   const percentage = useRef();
   const remains = useRef();
@@ -46,6 +46,11 @@ const WaterControl = () => {
 
   const clearHistory = () => {
     setWaterHistory({});
+    const updUser = {
+      ...dbUser,
+      historyOfDrunkWater: {},
+    };
+    setDbUser(updUser);
   };
 
   const updateInfo = () => {
@@ -62,7 +67,7 @@ const WaterControl = () => {
       historyOfDrunkWater: historyOfWater,
     };
     setDbUser(updUser);
-    update(ref(db), {[user.uid]: updUser});
+    update(ref(db), { [user.uid]: updUser });
   };
 
   const drawWaterPercent = () => {
@@ -112,11 +117,11 @@ const WaterControl = () => {
         </div>
 
         <div className={style.glassOfWater} onClick={addWater}>
-          <img src={glassOfWater} alt="glassOfWater"/>
+          <img src={glassOfWater} alt="glassOfWater" />
         </div>
       </div>
       <div>
-        <History historyData={waterHistory} clearHistory={clearHistory}/>
+        <History historyData={waterHistory} clearHistory={clearHistory} />
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import style from "./History.module.css";
 
-const History = ({historyData, clearHistory}) => {
+const History = ({ historyData, clearHistory }) => {
+  const data = Object.entries(historyData).reverse();
   return (
     <div className={style.container}>
       <h1>History</h1>
       <div className={style.history}>
-        {Object.entries(historyData).map(([time, ml], index) => (
+        {data.map(([time, ml], index) => (
           <div key={index + 1}>
             <h4 className={style.history_info}>
               You drunk at {time}- {ml} ml
