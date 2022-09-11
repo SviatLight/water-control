@@ -1,16 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Header.module.css";
 import waterIcn from "../../images/water.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Header = () => {
   const navigate = useNavigate();
   const { user, userHasSettings } = useOutletContext();
+  const [headerBgColor, setHeaderBgColor] = useState("transparent")
+
+  const listenScrollEvent = () => {
+    window.scrollY < 100
+      ? setHeaderBgColor("transparent")
+      : setHeaderBgColor("rgba(39, 70, 133, 0.8)")
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent)
+  });
+  const profileButton = () => {
+    return (
+      user ? (
+        <div className={style.profile} >
+          <BurgerMenu />
+        </div >
+      ) : (
+        <div className={style.profile} >
+          <button
+            className="btn btn-primary"
+            onClick={() => navigate("/login")}>
+            Sign in
+          </button>
+        </div>
+      )
+    )
+  }
 
   return (
     <section className={style.header}>
-      <NavBar />
+      <header id="header" className="fixed-top d-flex align-items-center content" style={{ backgroundColor: ` ${headerBgColor}`, height: '80px' }}>
+        <div className={`container d-flex justify-content-between align-items-center ${style.content}`}>
+          <div className={style.logo}>
+            <h1><a href="index.html">Water Control</a></h1>
+          </div>
+          <nav className={style.navbar}>
+            <ul>
+              <li><a href="/">About</a></li>
+              <li><a href="/">How It Work</a></li>
+              <li><a href="/">FAQ</a></li>
+              <li><a href="/feedback">Feedbacks</a></li>
+            </ul>
+          </nav>
+          {profileButton()}
+        </div>
+      </header >
+
       <div className={style.wave}>
         <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink">
