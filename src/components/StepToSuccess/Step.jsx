@@ -1,7 +1,7 @@
-import React from 'react';
-import style from "./StepToSuccess.module.css"
+import React from "react";
+import style from "./StepToSuccess.module.css";
 
-const Step = ({icon, title, text}) => {
+const Step = ({ icon, title, text }) => {
   return (
     <div className={style.step_wrapper}>
       <div className={style.stepToSuccess}>

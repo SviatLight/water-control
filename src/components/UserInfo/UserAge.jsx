@@ -1,6 +1,6 @@
 import React from "react";
-import style from './UserInfo.module.css'
-import {useOutletContext} from "react-router-dom";
+import style from "./UserInfo.module.css";
+import { useOutletContext } from "react-router-dom";
 import boyAge from "../../images/boyAge.png";
 import girlAge from "../../images/girlAge.png";
 
@@ -8,16 +8,16 @@ const UserAge = () => {
   const [currentUser, setCurrentUser] = useOutletContext();
 
   const setAge = (userAge) => {
-    setCurrentUser((prevState) => ({...prevState, userAge}));
+    setCurrentUser((prevState) => ({ ...prevState, userAge }));
   };
   return (
     <div className={style.user_info_wrapper}>
       <h1>Your age</h1>
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
-          <img className={style.images} src={boyAge}/>
+          <img className={style.images} src={boyAge} />
         ) : (
-          <img className={style.images} src={girlAge}/>
+          <img className={style.images} src={girlAge} />
         )}
         <div>
           <input

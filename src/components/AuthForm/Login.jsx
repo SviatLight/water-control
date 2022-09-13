@@ -1,22 +1,22 @@
-import React, {useState, useContext, useCallback} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useContext, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./AuthForm.module.css";
 import {
   validateUserEmail,
   validateUserPassword,
 } from "../../helpers/authUtils";
-import {FirebaseContext} from "../../config";
+import { FirebaseContext } from "../../config";
 import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import {toast} from "react-toastify";
-import {capitalizeFirstLetter} from "../../helpers/utils";
+import { toast } from "react-toastify";
+import { capitalizeFirstLetter } from "../../helpers/utils";
 
 const Login = () => {
   const navigate = useNavigate();
-  const {auth} = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
 
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState(
@@ -36,7 +36,7 @@ const Login = () => {
 
   const loginHandler = useCallback(async (event) => {
     event.preventDefault();
-    const {email, password} = event.target.elements;
+    const { email, password } = event.target.elements;
     try {
       await signInWithEmailAndPassword(auth, email.value, password.value).then(
         () => {
@@ -91,7 +91,10 @@ const Login = () => {
       )}
 
       <div className={style.form_btns}>
-        <button className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`} type="submit">
+        <button
+          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
+          type="submit"
+        >
           Login
         </button>
 

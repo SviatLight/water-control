@@ -2,16 +2,19 @@ import React from "react";
 import style from "./NavBar.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { user } = useOutletContext();
   const location = useLocation();
-  const isHome = location.pathname == '/';
+  const isHome = location.pathname == "/";
 
   return (
-    <header className={style.nav_bar} style={{ display: isHome ? 'none' : 'flex' }}>
+    <header
+      className={style.nav_bar}
+      style={{ display: isHome ? "none" : "flex" }}
+    >
       <h2>Water Control</h2>
       <ul className={style.nav_bar_menu}>
         <li className={style.menuItem}>

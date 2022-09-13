@@ -28,9 +28,9 @@ const WaterControl = () => {
       const totalDrink = dbUser.historyOfDrunkWater
         ? dbUser.historyOfDrunkWater[curDate]
           ? Object.values(dbUser.historyOfDrunkWater[curDate]).reduce(
-            (a, b) => a + b,
-            0
-          )
+              (a, b) => a + b,
+              0
+            )
           : 0
         : 0;
 
@@ -93,11 +93,8 @@ const WaterControl = () => {
     <div className={style.water_control_wrapper}>
       <div className={style.background_div}></div>
       <div className={style.wrapper}>
-
-
         <div className={style.cup}>
           <div className={style.circle}>
-
             <div className={style.wrapper_target}>
               <div id="watter_drunk" className={style.watter_drunk}>
                 {drunkToday.toString()}
@@ -107,13 +104,13 @@ const WaterControl = () => {
                 {dailyRate.toString()}
               </div>
             </div>
-
-
           </div>
-          <div className={style.remained} id="remained" ref={remains}>
-          </div>
-          <div className={style.percentage} ref={percentage} id="percentage">
-          </div>
+          <div className={style.remained} id="remained" ref={remains}></div>
+          <div
+            className={style.percentage}
+            ref={percentage}
+            id="percentage"
+          ></div>
         </div>
 
         <div className={style.glassOfWater} onClick={addWater}>
