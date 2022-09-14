@@ -1,0 +1,98 @@
+.analytics {
+  margin-top: 3%;
+}
+
+.analytics_title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(-45deg, #3db3c5, #274685);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  margin-top: 3%;
+  justify-content: space-around;
+}
+
+.calendar {
+  display: flex;
+  justify-content: center;
+}
+
+.donut_chart {
+  display: flex;
+  justify-content: center;
+}
+
+.analytics_donat canvas {
+  height: 430px !important;
+  width: 430px !important;
+}
+
+@media (min-width: 571px) and (max-width: 1100px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+  }
+
+  .analytics_line canvas {
+    width: 550px !important;
+  }
+
+  .line_chart {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 570px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+  }
+
+  .line_chart {
+    display: flex;
+    justify-content: center;
+  }
+
+  .analytics_line canvas {
+    width: 400px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .calendar {
+    display: block;
+  }
+
+  .calendar div {
+    width: 160px !important;
+  }
+
+  .analytics_donat canvas {
+    height: 300px !important;
+    width: 300px !important;
+  }
+
+  .line_chart {
+    display: flex;
+    justify-content: center;
+  }
+
+  .analytics_line canvas {
+    min-width: 250px !important;
+    width: 320px !important;
+  }
+}
+

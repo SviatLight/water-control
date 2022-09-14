@@ -20,6 +20,7 @@ import LoginContext from "./components/context/LoginContext";
 import LoginRequired from "./components/context/LoginRequired";
 import NavBarLayout from "./components/NavBar/NavBarLayout";
 import Feedback from "./components/Feedback/Feedback";
+import Analytics from "./components/Analytics/Analytics";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <Route element={<LoginRequired />}>
                 <Route path="/water_info" element={<WaterInfo />} />
                 <Route path="/app" element={<WaterControl />} />
+                <Route path="/analytics" element={<Analytics />} />
               </Route>
             </Route>
           </Route>

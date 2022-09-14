@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import style from "./Header.module.css";
 import waterIcn from "../../images/water.png";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import {useNavigate, useOutletContext} from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, userHasSettings } = useOutletContext();
+  const {user, userHasSettings} = useOutletContext();
   const [headerBgColor, setHeaderBgColor] = useState("transparent");
 
   const listenScrollEvent = () => {
@@ -21,7 +21,7 @@ const Header = () => {
   const profileButton = () => {
     return user ? (
       <div className={style.profile}>
-        <BurgerMenu />
+        <BurgerMenu/>
       </div>
     ) : (
       <div className={style.profile}>
@@ -37,7 +37,7 @@ const Header = () => {
       <header
         id="header"
         className="fixed-top d-flex align-items-center content"
-        style={{ backgroundColor: ` ${headerBgColor}`, height: "80px" }}
+        style={{backgroundColor: ` ${headerBgColor}`, height: "80px"}}
       >
         <div
           className={`container d-flex justify-content-between align-items-center ${style.content}`}
@@ -61,6 +61,12 @@ const Header = () => {
               <li>
                 <a href="/feedback">Feedbacks</a>
               </li>
+              {user ?
+                <li>
+                  <a href="/analytics">Analytics</a>
+                </li>
+                : <></>
+              }
             </ul>
           </nav>
           {profileButton()}
