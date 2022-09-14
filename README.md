@@ -11,3 +11,7 @@
   - react-firebase-hooks
   - react-toastify
   - moment
+  - react-chartjs-2
+  - chart.js
+  - react-date-range
+  - date-fns
