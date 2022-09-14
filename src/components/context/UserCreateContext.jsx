@@ -4,12 +4,12 @@ import style from "../UserInfo/UserInfo.module.css";
 import { db, FirebaseContext } from "../../config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
-  Alarm,
+  Alarm, CupStraw,
   GenderFemale,
   GenderMale,
   Info,
   MoonStars,
-  Person,
+  Person, PersonFill,
   PersonHearts,
   PersonLinesFill,
   Sun,
@@ -18,6 +18,7 @@ import { ref, set } from "firebase/database";
 import { toast } from "react-toastify";
 import UserInfoHeaderButton from "../UserInfo/UserInfoHeaderButton";
 import { capitalizeAll } from "../../helpers/utils";
+import Button from "../Base/Button/Button";
 
 const UserCreateContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({
@@ -37,6 +38,7 @@ const UserCreateContext = ({ children }) => {
     "user_weight",
     "wake_up",
     "sleep_time",
+    "amount_water"
   ];
   const location = useLocation();
   const pageIndex = setupPages.indexOf(location.pathname.split("/").at(-1));
@@ -62,7 +64,7 @@ const UserCreateContext = ({ children }) => {
 
   const finishUserSettings = () => {
     writeToDatabase();
-    navigate("/water_info");
+    navigate("/");
     toast.success("You finished your settings!");
     console.log(currentUser);
   };
@@ -139,6 +141,17 @@ const UserCreateContext = ({ children }) => {
           <Alarm className={style.gender_icon} />
           <MoonStars className={`${style.gender_icon} ${style.moon}`} />
         </UserInfoHeaderButton>
+
+        <UserInfoHeaderButton
+          thisPageIndex={6}
+          currentPageIndex={pageIndex}
+          clickHandler={clickHandler}
+          currentUser={currentUser}
+          userKey="amountWater"
+        >
+          <PersonFill className={style.gender_icon} />
+          <CupStraw className={style.gender_icon} />
+        </UserInfoHeaderButton>
       </div>
 
       {children}
@@ -149,28 +162,15 @@ const UserCreateContext = ({ children }) => {
         className={pageIndex !== 0 ? style.prev_next_buttons : style.btn_next}
       >
         {pageIndex !== 0 ? (
-          <button
-            className="btn btn-primary"
-            onClick={() => navigate(`/setup/${setupPages[pageIndex - 1]}`)}
-          >
-            Prev
-          </button>
+          <Button buttonText={'Prev'} onClick={() => navigate(`/setup/${setupPages[pageIndex - 1]}`)}  />
         ) : (
           <></>
         )}
 
         {pageIndex === setupPages.length - 1 ? (
-          <button className="btn btn-success" onClick={finishUserSettings}>
-            Finish
-          </button>
+          <Button buttonText={'Finish'} onClick={finishUserSettings} btnGreen={true} disabled={!currentUser[currentUserProperty]} />
         ) : (
-          <button
-            disabled={!currentUser[currentUserProperty]}
-            className="btn btn-primary"
-            onClick={() => navigate(`/setup/${nextPageName}`)}
-          >
-            Next
-          </button>
+          <Button buttonText={'Next'} onClick={() => navigate(`/setup/${nextPageName}`)} disabled={!currentUser[currentUserProperty]} />
         )}
       </div>
     </>

@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../helpers/utils";
 import { toast } from "react-toastify";
+import Button from "../Base/Button/Button";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -111,12 +112,7 @@ const Registration = () => {
       )}
 
       <div className={style.form_btns}>
-        <button
-          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
-          type="submit"
-        >
-          Registration
-        </button>
+        <Button buttonText={'Registration'} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
       </div>
     </form>
   );

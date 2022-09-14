@@ -5,6 +5,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { ref, update } from "firebase/database";
 import { toast } from "react-toastify";
 import moment from "moment/moment";
+import Button from "../Base/Button/Button";
 
 const BurgerMenu = () => {
   const [active, setActive] = useState(false);
@@ -239,9 +240,7 @@ const BurgerMenu = () => {
                 </div>
               )}
             </div>
-            <button className="btn btn-danger" onClick={exit}>
-              Sign out
-            </button>
+            <Button buttonText={'Sign out'} onClick={exit} extraClass={'btn btn-danger mt-0'} redBtn={true} />
           </div>
         </div>
       </div>
@@ -273,15 +272,8 @@ const BurgerMenu = () => {
               className={`${style.burger_icons} ${style.burger_icon_person_no_settings}`}
             />
             <div>You have not provided any information about yourself</div>
-            <button
-              className="btn btn-primary mb-0"
-              onClick={() => navigate("/setup/gender")}
-            >
-              Start settings
-            </button>
-            <button className="btn btn-danger mt-0" onClick={exit}>
-              Sign out
-            </button>
+            <Button buttonText={'Start settings'} onClick={() => navigate("/setup/gender")} extraClass={'mb-0'} />
+            <Button buttonText={'Sign out'} onClick={exit} extraClass={'btn btn-danger mt-0'} redBtn={true} />
           </div>
         </div>
       </div>

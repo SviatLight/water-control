@@ -3,6 +3,7 @@ import style from "./UserInfo.module.css";
 import { useOutletContext } from "react-router-dom";
 import boyWeight from "../../images/boyWeight.png";
 import girlWeight from "../../images/girlWeight.png";
+import Title from "../Base/Title/Title";
 
 const UserWeight = () => {
   const [currentUser, setCurrentUser] = useOutletContext();
@@ -12,7 +13,7 @@ const UserWeight = () => {
   };
   return (
     <div className={style.user_info_wrapper}>
-      <h1>Your weight</h1>
+      <Title titleText={'Your weight'} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boyWeight} />

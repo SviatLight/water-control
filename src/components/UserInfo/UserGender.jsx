@@ -3,6 +3,7 @@ import style from "./UserInfo.module.css";
 import boy from "../../images/boy.jpeg";
 import girl from "../../images/girl.jpeg";
 import { useOutletContext } from "react-router-dom";
+import Title from "../Base/Title/Title";
 
 const UserGender = () => {
   const [currentUser, setCurrentUser] = useOutletContext();
@@ -13,7 +14,7 @@ const UserGender = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <h1>Your gender</h1>
+      <Title titleText={'Your gender'} />
       <div className={style.user_info_container}>
         <div
           className={

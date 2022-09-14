@@ -4,7 +4,7 @@ import Logo from "./undraw_svg_1.svg";
 
 const RegistrationSteps = () => {
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} id='registrationSteps'>
       <div className={style.wrapperImage}>
         <img src={Logo} alt="logo" width="600" />
       </div>

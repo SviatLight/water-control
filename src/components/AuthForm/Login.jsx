@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { toast } from "react-toastify";
 import { capitalizeFirstLetter } from "../../helpers/utils";
+import Button from "../Base/Button/Button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -91,20 +92,8 @@ const Login = () => {
       )}
 
       <div className={style.form_btns}>
-        <button
-          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
-          type="submit"
-        >
-          Login
-        </button>
-
-        <button
-          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
-          type="submit"
-          onClick={loginGoogleHandler}
-        >
-          Login with Google
-        </button>
+        <Button buttonText={'Login'} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
+        <Button buttonText={'Login with Google'} onClick={loginGoogleHandler} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
       </div>
     </form>
   );

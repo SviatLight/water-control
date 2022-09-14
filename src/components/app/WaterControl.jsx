@@ -77,7 +77,7 @@ const WaterControl = () => {
       remainsStyles.height = 0;
       remainsStyles.visibility = "hidden";
       percentageStyles.height = "100%";
-      toast.info("Ви випили денну норму води");
+      toast.info("You drank the daily amount of water");
     } else {
       percentageStyles.height = `${drinkTodayPercent}%`;
       percentageStyles.visibility = "visible";
