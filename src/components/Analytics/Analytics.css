@@ -10,7 +10,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.wrapper {
+.analytics_wrapper {
   display: grid;
   grid-template-columns: 45% 45%;
   margin-top: 3%;
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 571px) and (max-width: 1100px) {
-  .wrapper {
+  .analytics_wrapper {
     display: flex;
     flex-direction: column;
     margin: 3% 0;
@@ -43,6 +43,10 @@
     width: 550px !important;
   }
 
+  .donut_chart {
+    margin-top: 3%;
+  }
+
   .line_chart {
     display: flex;
     justify-content: center;
@@ -50,10 +54,18 @@
 }
 
 @media (min-width: 421px) and (max-width: 570px) {
-  .wrapper {
+  .analytics_wrapper {
     display: flex;
     flex-direction: column;
     margin: 3% 0;
+  }
+
+  .rdrDefinedRangesWrapper {
+      display: none !important;
+  }
+
+  .donut_chart {
+    margin-top: 5%;
   }
 
   .line_chart {
@@ -67,17 +79,17 @@
 }
 
 @media screen and (max-width: 420px) {
-  .wrapper {
+  .analytics_wrapper {
     display: flex;
     flex-direction: column;
   }
 
-  .calendar {
-    display: block;
+  .rdrDefinedRangesWrapper {
+      display: none !important;
   }
 
-  .calendar div {
-    width: 160px !important;
+  .donut_chart {
+    margin-top: 5%;
   }
 
   .analytics_donat canvas {
@@ -87,7 +99,7 @@
 
   .line_chart {
     display: flex;
-    justify-content: center;
+    justify-content: start;
   }
 
   .analytics_line canvas {

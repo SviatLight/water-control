@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {DoughnutChart} from "./DoughnutChart";
 import {useOutletContext} from "react-router-dom";
 import moment from "moment";
-import style from './Analytics.module.css'
+import './Analytics.css'
 import AnalyticsParams from "./AnalyticsParams";
 import {addDays} from "date-fns";
 import {LineChart} from "./LineChart";
@@ -87,18 +87,18 @@ const Analytics = () => {
     }
   }
   return (
-    <div className={style.analytics}>
-      <h1 className={style.analytics_title}>Analytics</h1>
-      <div className={style.wrapper}>
-        <div className={style.calendar}>
+    <div className='analytics'>
+      <h1 className='analytics_title'>Analytics</h1>
+      <div className='analytics_wrapper'>
+        <div className='calendar'>
           <AnalyticsParams startDate={startDate} endDate={endDate} handleChange={handleChange}/>
         </div>
-        <div className={todayDate || yesterdayDate ? style.analytics_donat : style.analytics_line}>
+        <div className={todayDate || yesterdayDate ? 'analytics_donat' : 'analytics_line'}>
           {
             todayDate || yesterdayDate
-              ? <div className={style.donut_chart}><DoughnutChart drunk={drunk} left={left}/></div>
+              ? <div className='donut_chart'><DoughnutChart drunk={drunk} left={left}/></div>
               : drunkHistory.length ?
-                <div className={style.line_chart}><LineChart drunkHistory={drunkHistory} labels={labels}/></div> : <></>
+                <div className='line_chart'><LineChart drunkHistory={drunkHistory} labels={labels}/></div> : <></>
           }
         </div>
       </div>
