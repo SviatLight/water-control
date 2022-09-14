@@ -46,8 +46,7 @@ const AnalyticsParams = ({startDate, endDate, handleChange}) => {
   ]
 
   return (
-    <div>
-      <DateRangePicker
+    <DateRangePicker
         shownDate={startDate}
         weekStartsOn={1}
         maxDate={new Date()}
@@ -61,7 +60,6 @@ const AnalyticsParams = ({startDate, endDate, handleChange}) => {
         calendarFocus="backwards"
         staticRanges={staticRanges}
       />
-    </div>
   );
 };
 
