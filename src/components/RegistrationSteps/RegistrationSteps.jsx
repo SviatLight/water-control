@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./RegistrationSteps.module.css";
 import Logo from "./undraw_svg_1.svg";
+import Step from "./Step.jsx";
 
 const RegistrationSteps = () => {
   return (
@@ -10,27 +11,12 @@ const RegistrationSteps = () => {
       </div>
 
       <div className={style.wrapperSteps}>
-        <div className={style.wrapperStepElement}>
-          <div className={style.stepNumber}>01</div>
-          <h3 className={style.stepHeader}>Sing Up</h3>
-          <p className={style.stepDescription}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio.
-          </p>
-        </div>
-        <div className={style.wrapperStepElement}>
-          <div className={style.stepNumber}>02</div>
-          <h3 className={style.stepHeader}>Create Profile</h3>
-          <p className={style.stepDescription}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio.
-          </p>
-        </div>
-        <div className={style.wrapperStepElement}>
-          <div className={style.stepNumber}>03</div>
-          <h3 className={style.stepHeader}>Enjoy the app</h3>
-          <p className={style.stepDescription}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio.
-          </p>
-        </div>
+        <Step number = {"01"} title="Sing Up"
+            description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio."}/>
+        <Step number = {"02"} title="Create Profile"
+            description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio."}/>
+        <Step number = {"03"} title="Enjoy the app"
+            description={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, optio."}/>
       </div>
     </div>
   );
