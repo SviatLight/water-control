@@ -1,14 +1,14 @@
-import {useState, useRef, useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import style from "./WaterControl.module.css";
 import History from "../HistoryWater/History";
 import moment from "moment";
-import {useOutletContext} from "react-router-dom";
-import {toast} from "react-toastify";
-import {ref, update} from "firebase/database";
+import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
+import { ref, update } from "firebase/database";
 import glassOfWater from "../../images/glass-of-water.png";
 
 const WaterControl = () => {
-  const {db, user, dbUser, setDbUser} = useOutletContext();
+  const { db, user, dbUser, setDbUser } = useOutletContext();
 
   const percentage = useRef();
   const remains = useRef();
@@ -28,9 +28,9 @@ const WaterControl = () => {
       const totalDrink = dbUser.historyOfDrunkWater
         ? dbUser.historyOfDrunkWater[curDate]
           ? Object.values(dbUser.historyOfDrunkWater[curDate]).reduce(
-            (a, b) => a + b,
-            0
-          )
+              (a, b) => a + b,
+              0
+            )
           : 0
         : 0;
 
@@ -46,6 +46,11 @@ const WaterControl = () => {
 
   const clearHistory = () => {
     setWaterHistory({});
+    const updUser = {
+      ...dbUser,
+      historyOfDrunkWater: {},
+    };
+    setDbUser(updUser);
   };
 
   const updateInfo = () => {
@@ -62,7 +67,7 @@ const WaterControl = () => {
       historyOfDrunkWater: historyOfWater,
     };
     setDbUser(updUser);
-    update(ref(db), {[user.uid]: updUser});
+    update(ref(db), { [user.uid]: updUser });
   };
 
   const drawWaterPercent = () => {
@@ -72,7 +77,7 @@ const WaterControl = () => {
       remainsStyles.height = 0;
       remainsStyles.visibility = "hidden";
       percentageStyles.height = "100%";
-      toast.info("Ви випили денну норму води");
+      toast.info("You drank the daily amount of water");
     } else {
       percentageStyles.height = `${drinkTodayPercent}%`;
       percentageStyles.visibility = "visible";
@@ -88,11 +93,8 @@ const WaterControl = () => {
     <div className={style.water_control_wrapper}>
       <div className={style.background_div}></div>
       <div className={style.wrapper}>
-
-
         <div className={style.cup}>
           <div className={style.circle}>
-
             <div className={style.wrapper_target}>
               <div id="watter_drunk" className={style.watter_drunk}>
                 {drunkToday.toString()}
@@ -102,21 +104,21 @@ const WaterControl = () => {
                 {dailyRate.toString()}
               </div>
             </div>
-
-
           </div>
-          <div className={style.remained} id="remained" ref={remains}>
-          </div>
-          <div className={style.percentage} ref={percentage} id="percentage">
-          </div>
+          <div className={style.remained} id="remained" ref={remains}></div>
+          <div
+            className={style.percentage}
+            ref={percentage}
+            id="percentage"
+          ></div>
         </div>
 
         <div className={style.glassOfWater} onClick={addWater}>
-          <img src={glassOfWater} alt="glassOfWater"/>
+          <img src={glassOfWater} alt="glassOfWater" />
         </div>
       </div>
       <div>
-        <History historyData={waterHistory} clearHistory={clearHistory}/>
+        <History historyData={waterHistory} clearHistory={clearHistory} />
       </div>
     </div>
   );

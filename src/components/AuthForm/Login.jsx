@@ -1,22 +1,23 @@
-import React, {useState, useContext, useCallback} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useContext, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./AuthForm.module.css";
 import {
   validateUserEmail,
   validateUserPassword,
 } from "../../helpers/authUtils";
-import {FirebaseContext} from "../../config";
+import { FirebaseContext } from "../../config";
 import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import {toast} from "react-toastify";
-import {capitalizeFirstLetter} from "../../helpers/utils";
+import { toast } from "react-toastify";
+import { capitalizeFirstLetter } from "../../helpers/utils";
+import Button from "../Base/Button/Button";
 
 const Login = () => {
   const navigate = useNavigate();
-  const {auth} = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
 
   const [emailError, setEmailError] = useState("Email cannot be empty");
   const [passwordError, setPasswordError] = useState(
@@ -36,7 +37,7 @@ const Login = () => {
 
   const loginHandler = useCallback(async (event) => {
     event.preventDefault();
-    const {email, password} = event.target.elements;
+    const { email, password } = event.target.elements;
     try {
       await signInWithEmailAndPassword(auth, email.value, password.value).then(
         () => {
@@ -56,7 +57,7 @@ const Login = () => {
 
   return (
     <form className={style.form_wrapper} onSubmit={loginHandler}>
-      <div className="form-floating">
+      <div className="form-floating mb-3">
         <input
           type="email"
           name="email"
@@ -91,17 +92,8 @@ const Login = () => {
       )}
 
       <div className={style.form_btns}>
-        <button className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`} type="submit">
-          Login
-        </button>
-
-        <button
-          className={`btn btn-primary btn-lg btn-block ${style.btn_submit}`}
-          type="submit"
-          onClick={loginGoogleHandler}
-        >
-          Login with Google
-        </button>
+        <Button buttonText={'Login'} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
+        <Button buttonText={'Login with Google'} onClick={loginGoogleHandler} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
       </div>
     </form>
   );

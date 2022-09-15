@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { FirebaseContext } from "./config";
 import { auth, backFirebase, firestore } from "./config";
 
@@ -17,3 +18,5 @@ root.render(
     </React.StrictMode>
   </FirebaseContext.Provider>
 );
+
+serviceWorkerRegistration.register();

@@ -1,0 +1,9 @@
+.title {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(-45deg, #3db3c5, #274685);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}

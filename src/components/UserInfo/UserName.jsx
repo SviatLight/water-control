@@ -3,6 +3,7 @@ import style from "./UserInfo.module.css";
 import { useOutletContext } from "react-router-dom";
 import boyHi from "../../images/boyHi.jpeg";
 import girlHi from "../../images/girlHi.png";
+import Title from "../Base/Title/Title";
 
 const UserName = () => {
   const [currentUser, setCurrentUser] = useOutletContext();
@@ -13,7 +14,7 @@ const UserName = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <h1>Your name</h1>
+      <Title titleText={'Your name'} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boyHi} />
@@ -23,7 +24,7 @@ const UserName = () => {
         <div>
           <input
             type="name"
-            className={`form-control ${style.user_name}`}
+            className={`form-control ${style.info_input}`}
             id="floatingInput"
             placeholder="Your name"
             onChange={(e) => setName(e.target.value)}

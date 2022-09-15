@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "./NavBar";
 import { Outlet, useOutletContext } from "react-router-dom";
+import NavBar from "./NavBar";
 
 const NavBarLayout = ({ children }) => {
   const context = useOutletContext();

@@ -1,0 +1,90 @@
+.waterIcn {
+  max-width: 100%;
+}
+
+.description {
+  margin-bottom: 3rem;
+  width: 75%;
+}
+
+.header {
+  background: linear-gradient(
+      to right,
+      rgba(39, 70, 133, 0.8) 0%,
+      rgba(61, 179, 197, 0.8) 100%
+    ),
+    url(../../images/header-bg.jpg);
+  position: relative;
+  display: flex;
+  padding-top: 10%;
+}
+
+.header .wave {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: -100px;
+}
+
+.header .wave svg {
+  width: 100%;
+}
+
+.header,
+.header > .container > .row {
+  height: 90vh;
+  min-height: 800px;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.header p {
+  font-size: 18px;
+  color: #fff;
+}
+
+.btn {
+  border: none;
+  padding: 15px 30px !important;
+}
+
+.btnOutline {
+  border: 2px solid #fff;
+  background: none;
+  color: #fff;
+  padding: 15px 30px !important;
+  border-radius: 5px;
+  min-width: 180px;
+}
+
+.btnOutline:hover {
+  background: #fff;
+  color: #2d71a1;
+}
+
+@media screen and (max-width: 992px) {
+  .header .wave {
+    bottom: -200px;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .header {
+    padding-top: 20%;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 40px;
+  }
+}
+

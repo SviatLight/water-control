@@ -1,0 +1,76 @@
+.feedback_wrapper {
+  margin-top: 10%;
+}
+
+.feedback_input {
+  width: 50%;
+  height: 100px;
+  margin: 2% 25%;
+  padding: 1%;
+}
+
+.feedback_submit {
+  margin-left: 25%;
+}
+
+.feedbacks {
+  border: 3px solid #c7e2ff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 400px;
+  overflow: auto;
+  width: 60%;
+  margin: 2% 20%;
+}
+
+.height_feedbacks {
+  height: 550px !important;
+}
+
+.feedback_container {
+  background-color: #c7e2ff;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 90%;
+  margin: 2% 5%;
+  padding: 1%;
+  justify-content: center;
+}
+
+.user_name {
+  color: blue;
+}
+
+.info {
+  text-align: center;
+  color: blue;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .feedbacks {
+    height: 430px;
+  }
+  .feedback_input {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feedbacks {
+    width: 80%;
+    height: 450px;
+    margin: 2% 10%;
+  }
+
+  .feedback_input {
+    width: 80%;
+    margin: 2% 10%;
+  }
+
+  .feedback_submit {
+    margin-left: 10%;
+  }
+}

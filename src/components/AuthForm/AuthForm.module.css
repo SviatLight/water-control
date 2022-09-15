@@ -1,4 +1,11 @@
 .form_wrapper {
+  position: relative;
+  margin: 10px auto;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 40%;
 }
 
@@ -10,26 +17,26 @@
 }
 
 .header {
-  color: #0d6efd;
+  color: #1391a5;
   display: flex;
   justify-content: center;
 }
 
 .links {
-  color: #0d6efd;
+  color: #1391a5;
   text-decoration: none;
 }
 
 .links:hover {
-  color: blue;
+  color: #274685;
 }
 
 .active {
-  color: blue;
+  color: #274685;
 }
 
 .title {
-  color: blue;
+  color: #274685;
 }
 
 .error {
@@ -42,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px
+  gap: 10px;
 }
 
 .btn_submit {
