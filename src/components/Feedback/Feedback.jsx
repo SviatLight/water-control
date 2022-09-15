@@ -4,6 +4,8 @@ import { useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ref, set, get } from "firebase/database";
 import { db } from "../../config";
+import Title from "../Base/Title/Title";
+import Button from "../Base/Button/Button";
 
 const Feedback = () => {
   const { user, dbUser } = useOutletContext();
@@ -41,10 +43,7 @@ const Feedback = () => {
 
   return (
     <div className={style.feedback_wrapper}>
-      <h1 className={style.feedback_title}>
-        Feedbacks about water control app
-      </h1>
-
+      <Title titleText={'Feedbacks about water control app'} />
       <div>
         <div
           className={
@@ -69,13 +68,7 @@ const Feedback = () => {
               placeholder="Write your feedback about water control app here"
               ref={areaRef}
             />
-            <button
-              className={`btn btn-primary ${style.feedback_submit}`}
-              type="submit"
-              onClick={sendFeedback}
-            >
-              Send feedback
-            </button>
+            <Button buttonText={'Send feedback'} onClick={sendFeedback} extraClass={style.feedback_submit} />
           </div>
         ) : (
           <></>

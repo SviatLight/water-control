@@ -4,7 +4,7 @@
 .water_control_wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-top: 0;
+  margin-top: 13%;
   font-family: "Roboto", sans-serif;
 }
 
@@ -20,7 +20,12 @@
   display: none;
   position: absolute;
   width: 100%;
-  background-color: #4195d2;
+  background: linear-gradient(
+    to right,
+    rgba(39, 70, 133, 0.8) 0%,
+    rgba(61, 179, 197, 0.8) 100%
+  ),
+  url(../../images/header-bg.jpg);
   border-radius: 0 0 400px 400px;
   z-index: 1;
 }
@@ -125,9 +130,7 @@
 @media (min-width: 581px) and (max-width: 768px) {
   .water_control_wrapper {
     display: block;
-  }
-  .water_control_wrapper {
-    margin-top: 0;
+    margin-top: 10%;
   }
 
   .background_div {
@@ -138,10 +141,16 @@
   .wrapper {
     margin-bottom: 12px;
   }
+
+  .circle {
+    height: 320px;
+    width: 320px;
+  }
 }
 
 @media screen and (max-width: 580px) {
   .water_control_wrapper {
+    margin-top: 10%;
     display: block;
   }
 
@@ -160,8 +169,8 @@
   }
 
   .circle {
-    height: 280px;
-    width: 280px;
+    height: 250px;
+    width: 250px;
   }
 
   .wrapper_target {
@@ -170,5 +179,11 @@
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .water_control_wrapper {
+    margin-top: 14%;
   }
 }

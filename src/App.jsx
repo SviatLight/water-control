@@ -18,9 +18,9 @@ import UserAge from "./components/UserInfo/UserAge";
 import UserWeight from "./components/UserInfo/UserWeight";
 import LoginContext from "./components/context/LoginContext";
 import LoginRequired from "./components/context/LoginRequired";
-import NavBarLayout from "./components/NavBar/NavBarLayout";
 import Feedback from "./components/Feedback/Feedback";
 import Analytics from "./components/Analytics/Analytics";
+import NavBarLayout from "./components/NavBar/NavBarLayout";
 
 const App = () => {
   return (
@@ -32,7 +32,6 @@ const App = () => {
               <Route path="/" element={<Landing />} />
               <Route path="/feedback" element={<Feedback />} />
               <Route element={<LoginRequired />}>
-                <Route path="/water_info" element={<WaterInfo />} />
                 <Route path="/app" element={<WaterControl />} />
                 <Route path="/analytics" element={<Analytics />} />
               </Route>
@@ -49,6 +48,7 @@ const App = () => {
             <Route path="user_weight" element={<UserWeight />} />
             <Route path="wake_up" element={<UserWakeUp />} />
             <Route path="sleep_time" element={<UserGoSleep />} />
+            <Route path="amount_water" element={<WaterInfo />} />
           </Route>
         </Routes>
       </div>

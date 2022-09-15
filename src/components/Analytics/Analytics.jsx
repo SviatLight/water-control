@@ -7,6 +7,7 @@ import AnalyticsParams from "./AnalyticsParams";
 import {addDays} from "date-fns";
 import {LineChart} from "./LineChart";
 import {dateFormate, dateToDate, dateToMonth} from '../../helpers/utils'
+import Title from "../Base/Title/Title";
 
 const calculateWater = (key, curUser) => {
   return curUser.historyOfDrunkWater ? curUser.historyOfDrunkWater[key]
@@ -88,7 +89,7 @@ const Analytics = () => {
   }
   return (
     <div className='analytics'>
-      <h1 className='analytics_title'>Analytics</h1>
+      <Title titleText={'Analytics'} />
       <div className='analytics_wrapper'>
         <div className='calendar'>
           <AnalyticsParams startDate={startDate} endDate={endDate} handleChange={handleChange}/>

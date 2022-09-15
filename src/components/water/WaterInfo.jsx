@@ -1,5 +1,4 @@
 import style from "./WaterInfo.module.css";
-import { useState } from "react";
 import bottle1 from "../../images/bottle100.png";
 import bottle2 from "../../images/bottle125.png";
 import bottle3 from "../../images/bottle150.png";
@@ -7,24 +6,14 @@ import bottle4 from "../../images/bottle175.png";
 import bottle5 from "../../images/bottle200.png";
 import bottle6 from "../../images/bottle300.png";
 import bottle7 from "../../images/bottle400.png";
-import moment from "moment";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import { ref, update } from "firebase/database";
+import { useOutletContext } from "react-router-dom";
+import Title from "../Base/Title/Title";
 
 const WaterInfo = () => {
-  const { user, dbUser, setDbUser, db } = useOutletContext();
-  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useOutletContext();
 
-  const [water, setWater] = useState("");
-  const [choise, setChoise] = useState("");
-
-  const updateInfo = (amountWater) => {
-    const updUser = {
-      ...dbUser,
-      amountWater: amountWater,
-    };
-    update(ref(db), { [user.uid]: updUser });
-    setDbUser(updUser);
+  const setAmountWater = (amountWater) => {
+    setCurrentUser((prevState) => ({ ...prevState, amountWater }));
   };
 
   const data = [
@@ -37,49 +26,16 @@ const WaterInfo = () => {
     { image: bottle7, title: "400ml", id: "400" },
   ];
 
-  const handleSubmit = () => {
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-    console.log("result", choise);
-    let arr = [];
-    let timeData = {
-      time: moment(currentTime).format("hh:mm"),
-      choise: choise,
-    };
-    arr = JSON.parse(localStorage.getItem("drinkTime") || "[]");
-    arr.push(timeData);
-    localStorage.setItem("drinkTime", JSON.stringify(arr));
-    updateInfo(choise);
-    navigate("/app");
-  };
-
-  const handleSelect = (item) => {
-    setChoise(item);
-    setWater("");
-  };
-  const handleInput = (event) => {
-    setWater(event.target.value);
-    setChoise(event.target.value);
-  };
-
   return (
     <div>
       <div className={style.container}>
-        <h1>Об'єм посудини</h1>
-        <div>
-          <h4>You need to drink {dbUser.userWeight * 30} ml </h4>
-        </div>
+        <Title titleText={'Glass measure'} />
         <div className={style.wrapper}>
           {data.map((item) => (
             <div
               key={item.id}
-              className={style.block}
-              style={{
-                color: item.id === choise ? "blue" : "black",
-                border: item.id === choise ? "3px solid blue" : "none",
-                backgroundColor: item.id === choise ? "#a5d3edd1" : "white",
-              }}
-              onClick={() => handleSelect(item.id)}
+              className={currentUser.amountWater ===  item.id ? `${style.block} ${style.active}`: style.block}
+              onClick={() => setAmountWater(item.id)}
             >
               <img src={item.image} alt={item.title} />
               <div className={style.title}>{item.title}</div>
@@ -87,27 +43,17 @@ const WaterInfo = () => {
           ))}
 
           <div className={style.inputContainer}>
-            <label>
+            <label className={style.water_info_label}>
               <h4>Enter</h4>
               <input
                 className={style.waterCounter}
                 type="number"
                 min="1"
-                value={water}
-                onChange={(event) => handleInput(event)}
+                onChange={(event) => setAmountWater(event.target.value)}
               />
               <h4>ml</h4>
             </label>
           </div>
-        </div>
-
-        <div className="d-grid gap-2 col-6 mx-auto">
-          <button
-            className="btn btn-primary btn-lg btn-block"
-            onClick={handleSubmit}
-          >
-            OK
-          </button>
         </div>
       </div>
     </div>

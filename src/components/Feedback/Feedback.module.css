@@ -1,13 +1,5 @@
 .feedback_wrapper {
-  margin-top: 3%;
-}
-
-.feedback_title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(-45deg, #3db3c5, #274685);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-top: 10%;
 }
 
 .feedback_input {
@@ -19,10 +11,6 @@
 
 .feedback_submit {
   margin-left: 25%;
-  margin-bottom: 2%;
-  background: linear-gradient(-45deg, #1391a5, #274685);
-  color: #fff;
-  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
 }
 
 .feedbacks {

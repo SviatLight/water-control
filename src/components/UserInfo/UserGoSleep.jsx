@@ -4,6 +4,7 @@ import boySleeping from "../../images/boySleeping.jpeg";
 import girlSleeping from "../../images/girlSleeping.png";
 import { Timeit } from "react-timeit";
 import { useOutletContext } from "react-router-dom";
+import Title from "../Base/Title/Title";
 
 const UserGoSleep = () => {
   const [currentUser, setCurrentUser] = useOutletContext();
@@ -16,7 +17,7 @@ const UserGoSleep = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <h1>Time to sleep</h1>
+      <Title titleText={'Time to sleep'} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boySleeping} />

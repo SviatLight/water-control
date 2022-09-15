@@ -6,6 +6,7 @@
 - JS (JSX)
 - React
   - react-router-dom
+  - react-router-hash-link
   - react-bootstrap
   - firebase
   - react-firebase-hooks
