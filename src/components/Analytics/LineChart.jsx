@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-export const LineChart = ({drunkHistory, labels}) => {
+export const LineChart = ({drankHistory, labels}) => {
 
   const options = {
     responsive: true,
@@ -40,8 +40,8 @@ export const LineChart = ({drunkHistory, labels}) => {
       labels,
       datasets: [
         {
-          label: 'Drunk water',
-          data: drunkHistory,
+          label: 'Drank water',
+          data: drankHistory,
           borderColor: 'rgb(53, 162, 235)',
           backgroundColor: 'rgba(53, 162, 235, 0.5)',
         },

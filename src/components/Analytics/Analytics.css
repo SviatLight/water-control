@@ -25,6 +25,10 @@
 }
 
 @media (min-width: 571px) and (max-width: 1100px) {
+  .analytics {
+    margin-top: 12%;
+  }
+
   .analytics_wrapper {
     display: flex;
     flex-direction: column;
@@ -45,7 +49,17 @@
   }
 }
 
+@media (min-width: 571px) and (max-width: 720px) {
+  .analytics {
+    margin-top: 15%;
+  }
+}
+
 @media (min-width: 421px) and (max-width: 570px) {
+  .analytics {
+    margin-top: 20%;
+  }
+
   .analytics_wrapper {
     display: flex;
     flex-direction: column;
@@ -53,7 +67,7 @@
   }
 
   .rdrDefinedRangesWrapper {
-      display: none !important;
+    display: none !important;
   }
 
   .donut_chart {
@@ -71,13 +85,17 @@
 }
 
 @media screen and (max-width: 420px) {
+  .analytics {
+    margin-top: 25%;
+  }
+
   .analytics_wrapper {
     display: flex;
     flex-direction: column;
   }
 
   .rdrDefinedRangesWrapper {
-      display: none !important;
+    display: none !important;
   }
 
   .donut_chart {
