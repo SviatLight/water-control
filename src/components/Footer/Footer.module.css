@@ -3,10 +3,20 @@
 
 .wrapper {
   font-family: Roboto, sans-serif;
+  padding: 0 50px;
   font-weight: 400;
   display: flex;
   flex-direction: column;
 }
+
+.wrapperSections li {
+  list-style: none;
+}
+
+.wrapperSections li a {
+  text-decoration: none;
+}
+
 .section ul {
   padding: 0;
 }
@@ -15,6 +25,7 @@
   display: grid;
   grid-template-columns: 35% 10% 10% 20%;
   justify-content: space-between;
+  margin-bottom: 35px;
 }
 
 .section {
@@ -87,7 +98,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .wrapperSections {
-    grid-template-columns: 40% 10% 10% 20%;
+    grid-template-columns: 40% 20% 20% 20%;
   }
 }
 
