@@ -15,7 +15,7 @@ const UserGender = () => {
   return (
     <div className={style.user_info_wrapper}>
       <Title titleText={'Your gender'} />
-      <div className={style.user_info_container}>
+      <div className={`${style.user_info_container} ${style.user_gender_container}`}>
         <div
           className={
             currentUser.gender === "male"
@@ -24,7 +24,7 @@ const UserGender = () => {
           }
           onClick={() => setGender("male")}
         >
-          <img className={style.images} src={boy} />
+          <img className={`${style.images} ${style.gender_img}`} src={boy} />
           <span>Male</span>
         </div>
         <div
@@ -35,7 +35,7 @@ const UserGender = () => {
           }
           onClick={() => setGender("female")}
         >
-          <img className={`${style.images} ${style.female}`} src={girl} />
+          <img className={`${style.images} ${style.gender_img}`} src={girl} />
           <span>Female</span>
         </div>
       </div>

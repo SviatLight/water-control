@@ -7,7 +7,7 @@ import {
 } from "../../helpers/authUtils";
 import { FirebaseContext } from "../../config";
 import {
-  signInWithPopup,
+  signInWithRedirect,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -29,7 +29,7 @@ const Login = () => {
 
   const loginGoogleHandler = async () => {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider).then(() => {
+    await signInWithRedirect(auth, provider).then(() => {
       toast.success("You are successfully logged in");
       navigate("/");
     });

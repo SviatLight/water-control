@@ -36,29 +36,29 @@ const Analytics = () => {
   const yesterday = moment().subtract(1, 'days').format("MM-DD-YYYY")
 
   const waterForDay = dbUser.userWeight * 30
-  const drunkToday = calculateWater(today, dbUser)
-  const remainder = waterForDay - drunkToday
+  const drankToday = calculateWater(today, dbUser)
+  const remainder = waterForDay - drankToday
 
-  const drunkYesterday = calculateWater(yesterday, dbUser)
-  const remainderYesterday = waterForDay - drunkYesterday
+  const drankYesterday = calculateWater(yesterday, dbUser)
+  const remainderYesterday = waterForDay - drankYesterday
 
   const todayDate = startDate.toDateString() === new Date().toDateString() && endDate.toDateString() === new Date().toDateString()
   const yesterdayDate = startDate.toDateString() === addDays(new Date(), -1).toDateString() && endDate.toDateString() === addDays(new Date(), -1).toDateString()
 
-  let drunk, left
+  let drank, left
 
   if (todayDate) {
-    drunk = drunkToday
+    drank = drankToday
     left = remainder
   } else if (yesterdayDate) {
-    drunk = drunkYesterday
+    drank = drankYesterday
     left = remainderYesterday
   }
 
   const difTime = Math.abs(new Date(endDate) - new Date(startDate))
   const difDay = Math.ceil(difTime / (1000 * 60 * 60 * 24))
 
-  let drunkHistory = []
+  let drankHistory = []
   let labels = []
 
   if (Object.keys(dbUser).length > 0) {
@@ -69,20 +69,20 @@ const Analytics = () => {
         const water = calculateWater(dateFormate(newDate), dbUser)
         const dayAfter = addDays(newDate, 1)
         if (newDate.getMonth() !== dayAfter.getMonth()) {
-          drunkHistory.push(monthSum + water)
+          drankHistory.push(monthSum + water)
           monthSum = 0
           labels.push(dateToMonth(newDate))
         } else {
           monthSum += water
         }
       }
-      drunkHistory.push(monthSum)
+      drankHistory.push(monthSum)
       labels.push(dateToMonth(endDate))
     } else {
       for (let d = 0; d <= difDay; d++) {
         const newDate = addDays(startDate, d)
         const water = calculateWater(dateFormate(newDate), dbUser)
-        drunkHistory.push(water)
+        drankHistory.push(water)
         labels.push(dateToDate(newDate))
       }
     }
@@ -97,9 +97,9 @@ const Analytics = () => {
         <div className={todayDate || yesterdayDate ? 'analytics_donat' : 'analytics_line'}>
           {
             todayDate || yesterdayDate
-              ? <div className='donut_chart'><DoughnutChart drunk={drunk} left={left}/></div>
-              : drunkHistory.length ?
-                <div className='line_chart'><LineChart drunkHistory={drunkHistory} labels={labels}/></div> : <></>
+              ? <div className='donut_chart'><DoughnutChart drank={drank} left={left} waterForDay={waterForDay}/></div>
+              : drankHistory.length ?
+                <div className='line_chart'><LineChart drankHistory={drankHistory} labels={labels}/></div> : <></>
           }
         </div>
       </div>
