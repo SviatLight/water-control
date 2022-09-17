@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/water-control/static/css/main.75bd5401.css",
+    "main.js": "/water-control/static/js/main.d6ba45da.js",
+    "static/media/boyAge.png": "/water-control/static/media/boyAge.326020baeca0769875c6.png",
+    "static/media/girlWeight.png": "/water-control/static/media/girlWeight.aae0682446f22270828c.png",
+    "static/media/boyWeight.png": "/water-control/static/media/boyWeight.55eaddc7d92d0adb5dae.png",
+    "static/media/header-bg.jpg": "/water-control/static/media/header-bg.91f2dda3ca38b6e6ff2b.jpg",
+    "static/media/girlHi.png": "/water-control/static/media/girlHi.b566f19005ffaa1be0ba.png",
+    "static/media/girlAge.png": "/water-control/static/media/girlAge.685241c47ecadb535ef0.png",
+    "service-worker.js": "/water-control/service-worker.js",
+    "static/media/water.png": "/water-control/static/media/water.149a95a0d2eabd0b5855.png",
+    "static/media/girl.jpeg": "/water-control/static/media/girl.f7468592615ddcc57e08.jpeg",
+    "static/media/boyHi.jpeg": "/water-control/static/media/boyHi.71d4159b18ceb8a598a2.jpeg",
+    "static/media/girlSleeping.png": "/water-control/static/media/girlSleeping.09363cdf6365a5ec91e9.png",
+    "static/media/boy.jpeg": "/water-control/static/media/boy.30235cfede29a1ac866d.jpeg",
+    "static/media/undraw_svg_1.svg": "/water-control/static/media/undraw_svg_1.861a715d16c63667d5a707a75d63200f.svg",
+    "static/media/boyWakeUp.jpeg": "/water-control/static/media/boyWakeUp.24f618f205c7d71c0537.jpeg",
+    "static/media/boySleeping.jpeg": "/water-control/static/media/boySleeping.d00474bc05a750d51c92.jpeg",
+    "index.html": "/water-control/index.html",
+    "main.75bd5401.css.map": "/water-control/static/css/main.75bd5401.css.map",
+    "main.d6ba45da.js.map": "/water-control/static/js/main.d6ba45da.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75bd5401.css",
+    "static/js/main.d6ba45da.js"
+  ]
+}
