@@ -153,14 +153,19 @@
 
   .gender {
     justify-content: center;
+    transition: none;
   }
+
+  .gender:hover {
+  transform: none;
+}
 
   .female {
     margin-top: 5%;
   }
 
   .active {
-    margin: 10%;
+    margin: 0;
   }
 
   .info_input {

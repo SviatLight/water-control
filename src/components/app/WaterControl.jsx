@@ -73,7 +73,7 @@ const WaterControl = () => {
   const drawWaterPercent = () => {
     const percentageStyles = percentage.current.style;
     const remainsStyles = remains.current.style;
-    if (drinkTodayPercent >= 100) {
+    if (drinkTodayPercent >= dbUser.userWeight * 30) {
       remainsStyles.height = 0;
       remainsStyles.visibility = "hidden";
       percentageStyles.height = "100%";
