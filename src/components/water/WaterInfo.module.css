@@ -70,3 +70,20 @@
   font-weight: bold;
   margin-top: 10px;
 }
+
+@media (min-width: 789px) and (max-width: 1103px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 788px) {
+  .container {
+    width: 90%;
+  }
+
+  .block {
+    width: 80px;
+    height: 80px;
+  }
+}
