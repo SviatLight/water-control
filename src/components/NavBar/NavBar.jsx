@@ -6,7 +6,7 @@ import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const { user } = useOutletContext();
+  const { user, dbUser } = useOutletContext();
 
   const profileButton = () => {
     return user ? (
@@ -15,7 +15,7 @@ const NavBar = () => {
       </div>
     ) : (
       <div className={style.profile}>
-        <button className="btn btn-primary" onClick={() => navigate("/login")}>
+        <button className={style.btnOutline} onClick={() => navigate("/login")}>
           Sign in
         </button>
       </div>
@@ -49,7 +49,7 @@ const NavBar = () => {
             <li>
               <Link to="/feedback">Feedbacks</Link>
             </li>
-            {user ? (
+            {user && dbUser ? (
               <li>
                 <Link to="/analytics">Analytics</Link>
               </li>

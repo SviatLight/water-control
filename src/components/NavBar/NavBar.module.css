@@ -71,6 +71,20 @@
   margin-left: 15px;
 }
 
+.btnOutline {
+  border: 2px solid #fff;
+  background: none;
+  color: #fff;
+  padding: 5px 10px !important;
+  border-radius: 5px;
+  min-width: 80px;
+}
+
+.btnOutline:hover {
+  background: #fff;
+  color: #2d71a1;
+}
+
 @media screen and (max-width: 992px) {
   .content {
     justify-content: center !important;
