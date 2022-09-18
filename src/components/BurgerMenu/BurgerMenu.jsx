@@ -240,7 +240,12 @@ const BurgerMenu = () => {
                 </div>
               )}
             </div>
-            <Button buttonText={'Sign out'} onClick={exit} extraClass={'btn btn-danger mt-0'} redBtn={true} />
+            <Button
+              buttonText={"Sign out"}
+              onClick={exit}
+              extraClass={"btn btn-danger mt-0"}
+              redBtn={true}
+            />
           </div>
         </div>
       </div>
@@ -272,8 +277,17 @@ const BurgerMenu = () => {
               className={`${style.burger_icons} ${style.burger_icon_person_no_settings}`}
             />
             <div>You have not provided any information about yourself</div>
-            <Button buttonText={'Start settings'} onClick={() => navigate("/setup/gender")} extraClass={'mb-0'} />
-            <Button buttonText={'Sign out'} onClick={exit} extraClass={'btn btn-danger mt-0'} redBtn={true} />
+            <Button
+              buttonText={"Start settings"}
+              onClick={() => navigate("/setup/gender")}
+              extraClass={"mb-0"}
+            />
+            <Button
+              buttonText={"Sign out"}
+              onClick={exit}
+              extraClass={"btn btn-danger mt-0"}
+              redBtn={true}
+            />
           </div>
         </div>
       </div>

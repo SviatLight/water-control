@@ -6,10 +6,13 @@ import Title from "../Base/Title/Title";
 
 const StepsToSuccess = () => {
   return (
-    <section className={style.section_wrapper} id='stepsToSuccess'>
+    <section className={style.section_wrapper} id="stepsToSuccess">
       <div className={style.container}>
         <div className={style.extra_div}></div>
-        <Title titleText={'Save your time to using water control app'} extraClass={style.section_title} />
+        <Title
+          titleText={"Save your time to using water control app"}
+          extraClass={style.section_title}
+        />
         <div className={style.extra_div}></div>
       </div>
       <div className={style.row}>

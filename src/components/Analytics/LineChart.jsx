@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,8 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import {Line} from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -21,13 +21,12 @@ ChartJS.register(
   Legend
 );
 
-export const LineChart = ({drankHistory, labels}) => {
-
+export const LineChart = ({ drankHistory, labels }) => {
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: "top",
       },
       title: {
         display: true,
@@ -35,23 +34,21 @@ export const LineChart = ({drankHistory, labels}) => {
     },
   };
 
-  const
-    data = {
-      labels,
-      datasets: [
-        {
-          label: 'Drank water',
-          data: drankHistory,
-          borderColor: 'rgb(53, 162, 235)',
-          backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        },
-      ],
-    };
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Drank water",
+        data: drankHistory,
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+    ],
+  };
 
   return (
     <div>
-      <Line options={options} data={data}/>
+      <Line options={options} data={data} />
     </div>
-  )
+  );
 };
-

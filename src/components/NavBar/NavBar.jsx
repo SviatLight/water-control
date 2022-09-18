@@ -1,17 +1,17 @@
 import React from "react";
 import style from "./NavBar.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import {Link, useNavigate, useOutletContext} from "react-router-dom";
-import {HashLink} from "react-router-hash-link";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const {user} = useOutletContext();
+  const { user } = useOutletContext();
 
   const profileButton = () => {
     return user ? (
       <div className={style.profile}>
-        <BurgerMenu/>
+        <BurgerMenu />
       </div>
     ) : (
       <div className={style.profile}>
@@ -49,12 +49,13 @@ const NavBar = () => {
             <li>
               <Link to="/feedback">Feedbacks</Link>
             </li>
-            {user ?
+            {user ? (
               <li>
                 <Link to="/analytics">Analytics</Link>
               </li>
-              : <></>
-            }
+            ) : (
+              <></>
+            )}
           </ul>
         </nav>
         {profileButton()}

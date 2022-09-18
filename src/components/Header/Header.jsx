@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./Header.module.css";
 import waterIcn from "../../images/water.png";
-import {useNavigate, useOutletContext} from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-  const {user, userHasSettings} = useOutletContext();
+  const { user, userHasSettings } = useOutletContext();
 
   return (
     <section className={style.header}>
@@ -97,6 +97,6 @@ const Header = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Header;

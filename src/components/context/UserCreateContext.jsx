@@ -4,12 +4,14 @@ import style from "../UserInfo/UserInfo.module.css";
 import { db, FirebaseContext } from "../../config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
-  Alarm, CupStraw,
+  Alarm,
+  CupStraw,
   GenderFemale,
   GenderMale,
   Info,
   MoonStars,
-  Person, PersonFill,
+  Person,
+  PersonFill,
   PersonHearts,
   PersonLinesFill,
   Sun,
@@ -38,7 +40,7 @@ const UserCreateContext = ({ children }) => {
     "user_weight",
     "wake_up",
     "sleep_time",
-    "amount_water"
+    "amount_water",
   ];
   const location = useLocation();
   const pageIndex = setupPages.indexOf(location.pathname.split("/").at(-1));
@@ -162,15 +164,27 @@ const UserCreateContext = ({ children }) => {
         className={pageIndex !== 0 ? style.prev_next_buttons : style.btn_next}
       >
         {pageIndex !== 0 ? (
-          <Button buttonText={'Prev'} onClick={() => navigate(`/setup/${setupPages[pageIndex - 1]}`)}  />
+          <Button
+            buttonText={"Prev"}
+            onClick={() => navigate(`/setup/${setupPages[pageIndex - 1]}`)}
+          />
         ) : (
           <></>
         )}
 
         {pageIndex === setupPages.length - 1 ? (
-          <Button buttonText={'Finish'} onClick={finishUserSettings} btnGreen={true} disabled={!currentUser[currentUserProperty]} />
+          <Button
+            buttonText={"Finish"}
+            onClick={finishUserSettings}
+            btnGreen={true}
+            disabled={!currentUser[currentUserProperty]}
+          />
         ) : (
-          <Button buttonText={'Next'} onClick={() => navigate(`/setup/${nextPageName}`)} disabled={!currentUser[currentUserProperty]} />
+          <Button
+            buttonText={"Next"}
+            onClick={() => navigate(`/setup/${nextPageName}`)}
+            disabled={!currentUser[currentUserProperty]}
+          />
         )}
       </div>
     </>

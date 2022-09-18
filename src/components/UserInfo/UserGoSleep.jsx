@@ -17,7 +17,7 @@ const UserGoSleep = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <Title titleText={'Time to sleep'} />
+      <Title titleText={"Time to sleep"} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boySleeping} />

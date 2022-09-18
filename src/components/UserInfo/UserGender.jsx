@@ -14,8 +14,10 @@ const UserGender = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <Title titleText={'Your gender'} />
-      <div className={`${style.user_info_container} ${style.user_gender_container}`}>
+      <Title titleText={"Your gender"} />
+      <div
+        className={`${style.user_info_container} ${style.user_gender_container}`}
+      >
         <div
           className={
             currentUser.gender === "male"

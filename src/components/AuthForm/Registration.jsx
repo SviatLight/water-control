@@ -112,7 +112,10 @@ const Registration = () => {
       )}
 
       <div className={style.form_btns}>
-        <Button buttonText={'Registration'} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
+        <Button
+          buttonText={"Registration"}
+          extraClass={`btn-lg btn-block ${style.btn_submit}`}
+        />
       </div>
     </form>
   );

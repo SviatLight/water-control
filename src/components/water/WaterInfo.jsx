@@ -29,12 +29,16 @@ const WaterInfo = () => {
   return (
     <div>
       <div className={style.container}>
-        <Title titleText={'Glass measure'} />
+        <Title titleText={"Glass measure"} />
         <div className={style.wrapper}>
           {data.map((item) => (
             <div
               key={item.id}
-              className={currentUser.amountWater ===  item.id ? `${style.block} ${style.active}`: style.block}
+              className={
+                currentUser.amountWater === item.id
+                  ? `${style.block} ${style.active}`
+                  : style.block
+              }
               onClick={() => setAmountWater(item.id)}
             >
               <img src={item.image} alt={item.title} />

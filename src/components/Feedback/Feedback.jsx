@@ -43,7 +43,7 @@ const Feedback = () => {
 
   return (
     <div className={style.feedback_wrapper}>
-      <Title titleText={'Feedbacks about water control app'} />
+      <Title titleText={"Feedbacks about water control app"} />
       <div>
         <div
           className={
@@ -68,7 +68,11 @@ const Feedback = () => {
               placeholder="Write your feedback about water control app here"
               ref={areaRef}
             />
-            <Button buttonText={'Send feedback'} onClick={sendFeedback} extraClass={style.feedback_submit} />
+            <Button
+              buttonText={"Send feedback"}
+              onClick={sendFeedback}
+              extraClass={style.feedback_submit}
+            />
           </div>
         ) : (
           <></>

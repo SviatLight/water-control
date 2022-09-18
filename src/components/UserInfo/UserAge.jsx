@@ -13,7 +13,7 @@ const UserAge = () => {
   };
   return (
     <div className={style.user_info_wrapper}>
-      <Title titleText={'Your age'} />
+      <Title titleText={"Your age"} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boyAge} />

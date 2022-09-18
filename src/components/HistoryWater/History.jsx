@@ -6,7 +6,7 @@ const History = ({ historyData, clearHistory }) => {
   const data = Object.entries(historyData).reverse();
   return (
     <div className={style.container}>
-      <Title titleText={'History'} />
+      <Title titleText={"History"} />
       <div className={style.history}>
         {data.map(([time, ml], index) => (
           <div key={index + 1}>
@@ -17,7 +17,11 @@ const History = ({ historyData, clearHistory }) => {
         ))}
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
-        <Button buttonText={'Clear history'} onClick={clearHistory} extraClass={`btn-lg btn-block ${style.clear_history}`} />
+        <Button
+          buttonText={"Clear history"}
+          onClick={clearHistory}
+          extraClass={`btn-lg btn-block ${style.clear_history}`}
+        />
       </div>
     </div>
   );

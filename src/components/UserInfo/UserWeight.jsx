@@ -13,7 +13,7 @@ const UserWeight = () => {
   };
   return (
     <div className={style.user_info_wrapper}>
-      <Title titleText={'Your weight'} />
+      <Title titleText={"Your weight"} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boyWeight} />

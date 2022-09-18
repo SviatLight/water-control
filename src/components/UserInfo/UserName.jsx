@@ -14,7 +14,7 @@ const UserName = () => {
 
   return (
     <div className={style.user_info_wrapper}>
-      <Title titleText={'Your name'} />
+      <Title titleText={"Your name"} />
       <div className={style.user_info_container}>
         {currentUser.gender === "male" ? (
           <img className={style.images} src={boyHi} />

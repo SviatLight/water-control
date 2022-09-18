@@ -21,11 +21,11 @@
   position: absolute;
   width: 100%;
   background: linear-gradient(
-    to right,
-    rgba(39, 70, 133, 0.8) 0%,
-    rgba(61, 179, 197, 0.8) 100%
-  ),
-  url(../../images/header-bg.jpg);
+      to right,
+      rgba(39, 70, 133, 0.8) 0%,
+      rgba(61, 179, 197, 0.8) 100%
+    ),
+    url(../../images/header-bg.jpg);
   border-radius: 0 0 400px 400px;
   z-index: 1;
 }

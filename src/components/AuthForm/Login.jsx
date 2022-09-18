@@ -92,8 +92,15 @@ const Login = () => {
       )}
 
       <div className={style.form_btns}>
-        <Button buttonText={'Login'} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
-        <Button buttonText={'Login with Google'} onClick={loginGoogleHandler} extraClass={`btn-lg btn-block ${style.btn_submit}`} />
+        <Button
+          buttonText={"Login"}
+          extraClass={`btn-lg btn-block ${style.btn_submit}`}
+        />
+        <Button
+          buttonText={"Login with Google"}
+          onClick={loginGoogleHandler}
+          extraClass={`btn-lg btn-block ${style.btn_submit}`}
+        />
       </div>
     </form>
   );
