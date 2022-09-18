@@ -60,7 +60,7 @@ const Feedback = () => {
           ))}
         </div>
 
-        {user ? (
+        {user && dbUser ? (
           <div>
             <textarea
               type="text"

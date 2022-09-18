@@ -44,13 +44,8 @@ const WaterControl = () => {
     }
   }, [dbUser]);
 
-  const clearHistory = () => {
+  const hideHistory = () => {
     setWaterHistory({});
-    const updUser = {
-      ...dbUser,
-      historyOfDrunkWater: {},
-    };
-    setDbUser(updUser);
   };
 
   const updateInfo = () => {
@@ -73,7 +68,7 @@ const WaterControl = () => {
   const drawWaterPercent = () => {
     const percentageStyles = percentage.current.style;
     const remainsStyles = remains.current.style;
-    if (drinkTodayPercent >= dbUser.userWeight * 30) {
+    if (drunkToday >= dbUser.userWeight * 30) {
       remainsStyles.height = 0;
       remainsStyles.visibility = "hidden";
       percentageStyles.height = "100%";
@@ -118,7 +113,7 @@ const WaterControl = () => {
         </div>
       </div>
       <div>
-        <History historyData={waterHistory} clearHistory={clearHistory} />
+        <History historyData={waterHistory} hideHistory={hideHistory} />
       </div>
     </div>
   );

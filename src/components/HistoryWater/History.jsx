@@ -2,7 +2,7 @@ import style from "./History.module.css";
 import Title from "../Base/Title/Title";
 import Button from "../Base/Button/Button";
 
-const History = ({ historyData, clearHistory }) => {
+const History = ({ historyData, hideHistory }) => {
   const data = Object.entries(historyData).reverse();
   return (
     <div className={style.container}>
@@ -18,8 +18,8 @@ const History = ({ historyData, clearHistory }) => {
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
         <Button
-          buttonText={"Clear history"}
-          onClick={clearHistory}
+          buttonText={"Hide history"}
+          onClick={hideHistory}
           extraClass={`btn-lg btn-block ${style.clear_history}`}
         />
       </div>

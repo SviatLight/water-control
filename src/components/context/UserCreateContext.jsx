@@ -68,7 +68,6 @@ const UserCreateContext = ({ children }) => {
     writeToDatabase();
     navigate("/");
     toast.success("You finished your settings!");
-    console.log(currentUser);
   };
 
   const clickHandler = (e) => {
