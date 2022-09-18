@@ -42,49 +42,51 @@ const Header = () => {
         <div className="row align-items-center">
           <div className="col-12 hero-text-image">
             <div className="row">
-              <div className="col-lg-8 text-center text-lg-start">
-                <h1 data-aos="fade-right">Water</h1>
-                <p
-                  className={style.description}
-                  data-aos="fade-right"
-                  data-aos-delay="100"
-                >
-                  “Drinking water is like washing out your insides. The water
-                  will cleanse the system, fill you up, decrease your caloric
-                  load and improve the function of all your tissues.”
-                </p>
-                <p
-                  data-aos="fade-right"
-                  data-aos-delay="200"
-                  data-aos-offset="-500"
-                >
-                  {user ? (
-                    userHasSettings ? (
-                      <button
-                        onClick={() => navigate("/app")}
-                        className={style.btnOutline}
-                      >
-                        Get started
-                      </button>
+              <div className="col-lg-8 col-md-7 text-center text-lg-start">
+                <div className={style.headerDesc}>
+                  <h1 data-aos="fade-right">Water</h1>
+                  <p
+                    className={style.description}
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                  >
+                    “Drinking water is like washing out your insides. The water
+                    will cleanse the system, fill you up, decrease your caloric
+                    load and improve the function of all your tissues.”
+                  </p>
+                  <p
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    data-aos-offset="-500"
+                  >
+                    {user ? (
+                      userHasSettings ? (
+                        <button
+                          onClick={() => navigate("/app")}
+                          className={style.btnOutline}
+                        >
+                          Get started
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => navigate("/setup/gender")}
+                          className={style.btnOutline}
+                        >
+                          Start settings
+                        </button>
+                      )
                     ) : (
                       <button
-                        onClick={() => navigate("/setup/gender")}
+                        onClick={() => navigate("/login")}
                         className={style.btnOutline}
                       >
-                        Start settings
+                        Sign in
                       </button>
-                    )
-                  ) : (
-                    <button
-                      onClick={() => navigate("/login")}
-                      className={style.btnOutline}
-                    >
-                      Sign in
-                    </button>
-                  )}
-                </p>
+                    )}
+                  </p>
+                </div>
               </div>
-              <div className="col-lg-4 iphone-wrap">
+              <div className="col-lg-4 col-md-5 iphone-wrap">
                 <img
                   src={waterIcn}
                   className={style.waterIcn}

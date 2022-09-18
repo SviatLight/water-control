@@ -1,5 +1,40 @@
 .waterIcn {
-  max-width: 100%;
+  max-width: 60%;
+  position: relative;
+  top: 0;
+  right: 0;
+  text-align: center;
+  animation: waterIcn 2s;
+}
+
+@keyframes waterIcn {
+  0% {
+    opacity: 0;
+    right: 150px;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.headerDesc {
+  position: relative;
+  top: 0;
+  right: 0;
+  animation: headerDesc 2s;
+}
+
+@keyframes headerDesc {
+  0% {
+    opacity: 0;
+    right: 150px;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .description {
@@ -85,5 +120,11 @@
     font-size: 2.5rem;
     text-align: center;
     margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .waterIcn {
+    display: none;
   }
 }

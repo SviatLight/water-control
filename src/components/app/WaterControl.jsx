@@ -16,6 +16,7 @@ const WaterControl = () => {
   const [dailyRate, setDailyRate] = useState(0);
   const [drunkToday, setDrunkToday] = useState(0);
   const [waterHistory, setWaterHistory] = useState({});
+  const [showHistory, setShowHistory] = useState(true);
 
   let drinkTodayPercent = Math.round((drunkToday / dailyRate) * 100);
 
@@ -45,7 +46,7 @@ const WaterControl = () => {
   }, [dbUser]);
 
   const hideHistory = () => {
-    setWaterHistory({});
+    setShowHistory(!showHistory);
   };
 
   const updateInfo = () => {
@@ -113,7 +114,11 @@ const WaterControl = () => {
         </div>
       </div>
       <div>
-        <History historyData={waterHistory} hideHistory={hideHistory} />
+        <History
+          historyData={waterHistory}
+          hideHistory={hideHistory}
+          showHistory={showHistory}
+        />
       </div>
     </div>
   );
